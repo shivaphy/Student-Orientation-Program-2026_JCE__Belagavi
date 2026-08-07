@@ -1,0 +1,2881 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCE Orientation Program 2026 | Jain College of Engineering, Belagavi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti Library for Gamification Celebrations -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Firebase App and Realtime Database Compat SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jce: {
+                            navy: '#002B49',
+                            blue: '#005691',
+                            light: '#EBF4F6',
+                            accent: '#F39C12',
+                            teal: '#00A896',
+                            gold: '#FFD700',
+                            cardBg: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+        .font-display {
+            font-family: 'Outfit', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .gradient-banner {
+            background: linear-gradient(135deg, #002B49 0%, #005691 60%, #008080 100%);
+        }
+        .active-tab {
+            background-color: #005691 !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 12px rgba(0, 86, 145, 0.25);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+        .pulse-subtle {
+            animation: pulse-border 2s infinite;
+        }
+        @keyframes pulse-border {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 168, 150, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(0, 168, 150, 0); }
+        }
+
+        .glow-today-card {
+            background: linear-gradient(135deg, #FFFDF0 0%, #FEF9C3 100%) !important;
+            border: 2px solid #EAB308 !important;
+            box-shadow: 0 0 25px rgba(234, 179, 8, 0.45);
+            animation: gold-pulse-ring 2.5s infinite ease-in-out;
+            position: relative;
+        }
+        @keyframes gold-pulse-ring {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.6), 0 10px 25px -5px rgba(234, 179, 8, 0.3); }
+            50% { box-shadow: 0 0 0 12px rgba(234, 179, 8, 0), 0 20px 30px -5px rgba(234, 179, 8, 0.5); }
+        }
+
+        /* Certificate Print Styling */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-certificate, #printable-certificate * {
+                visibility: visible;
+            }
+            #printable-certificate {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 20px;
+                box-shadow: none !important;
+                border: 10px solid #002B49 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-jce-navy text-white text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide flex justify-between items-center px-6">
+        <div class="hidden sm:block">📍 Jain College of Engineering, Belagavi</div>
+        <div class="mx-auto sm:mx-0 font-semibold">⚡ August 4 - 14, 2026 | Daily 90-Minute Interactive Google Meet Sessions</div>
+        <div class="hidden md:block text-jce-gold">🎓 Class of 2026 Orientation Hub</div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="gradient-banner text-white shadow-xl relative overflow-hidden">
+        <div class="absolute -right-10 -top-10 w-60 h-60 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Branding & Title -->
+                <div class="text-center md:text-left">
+                    <div class="mb-4">
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black font-display tracking-tight text-white uppercase drop-shadow-md">
+                            Jain College of Engineering, Belagavi
+                        </h2>
+                        <p class="text-xs sm:text-sm text-jce-gold font-bold tracking-wider mt-0.5">
+                            Approved by AICTE, New Delhi & Affiliated to VTU, Belagavi
+                        </p>
+                        <p class="text-xs sm:text-sm text-amber-300 font-semibold tracking-wide mt-0.5">
+                            Accredited by NBA (Dept. of CVE, CSE, ECE and EEE)
+                        </p>
+                    </div>
+
+                    <div class="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-2 text-jce-gold border border-white/20">
+                        <i class="fa-solid fa-graduation-cap"></i> Student Orientation Program 2026
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold font-display leading-tight text-slate-100">
+                        Welcome to Your <span class="text-amber-400">Engineering Journey</span>
+                    </h1>
+                    <p class="text-slate-200 text-xs sm:text-sm mt-2 max-w-2xl font-light">
+                        Empowering future innovators through 10 transformative days of interactive learning, keynotes, virtual labs, and campus games.
+                    </p>
+                </div>
+
+                <!-- Coordinator Contact Quick Badge -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex flex-col items-center md:items-end text-center md:text-right min-w-[260px]">
+                    <span class="text-xs uppercase text-slate-300 font-medium">Program Coordinator</span>
+                    <span class="font-bold text-white text-base">Dr. Shivkumar Math</span>
+                    <span class="text-xs text-amber-300 font-semibold">HOD - Physics, JCE Belagavi</span>
+                    <div class="mt-1 flex gap-2">
+                        <a href="mailto:shivuphy@jainbgm.in" class="text-xs bg-white/20 hover:bg-white/30 text-white px-2.5 py-1 rounded-lg transition"><i class="fa-solid fa-envelope mr-1"></i> Email</a>
+                        <a href="tel:9964515505" class="text-xs bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold px-2.5 py-1 rounded-lg transition"><i class="fa-solid fa-phone mr-1"></i> 9964515505</a>
+                    </div>
+
+                    <div class="mt-3 pt-2 border-t border-white/20 w-full flex flex-col items-center md:items-end">
+                        <span class="text-xs uppercase text-slate-300 font-medium">Program Co-coordinator</span>
+                        <span class="font-bold text-white text-sm">Prof. Pooja M Jarali</span>
+                        <span class="text-xs text-amber-300 font-semibold">Mathematics, JCE Belagavi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Primary Navigation Bar -->
+    <nav class="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 overflow-x-auto no-scrollbar">
+                <div class="flex space-x-2 sm:space-x-4 min-w-max">
+                    <button onclick="switchTab('schedule')" id="tab-schedule" class="nav-tab active-tab px-4 py-2.5 rounded-xl font-semibold text-sm transition flex items-center gap-2 text-slate-600 hover:bg-slate-100">
+                        <i class="fa-regular fa-calendar-check text-base"></i> 10-Day Schedule
+                    </button>
+                    <button onclick="switchTab('activities')" id="tab-activities" class="nav-tab px-4 py-2.5 rounded-xl font-semibold text-sm transition flex items-center gap-2 text-slate-600 hover:bg-slate-100">
+                        <i class="fa-solid fa-gamepad text-base text-purple-600"></i> Student Activity Hub
+                    </button>
+                    <button onclick="switchTab('leaderboard')" id="tab-leaderboard" class="nav-tab px-4 py-2.5 rounded-xl font-semibold text-sm transition flex items-center gap-2 text-slate-600 hover:bg-slate-100">
+                        <i class="fa-solid fa-trophy text-base text-amber-500"></i> Leaderboard
+                    </button>
+                    
+                    <button onclick="switchTab('feedback')" id="tab-feedback" class="nav-tab hidden px-4 py-2.5 rounded-xl font-semibold text-sm transition flex items-center gap-2 text-slate-600 hover:bg-slate-100">
+                        <i class="fa-solid fa-comment-dots text-base text-teal-600"></i> Feedback Survey
+                    </button>
+                    <button onclick="switchTab('certificate')" id="tab-certificate" class="nav-tab hidden px-4 py-2.5 rounded-xl font-semibold text-sm transition flex items-center gap-2 text-slate-600 hover:bg-slate-100">
+                        <i class="fa-solid fa-award text-base text-jce-gold"></i> Certificate
+                    </button>
+                    
+                    <button onclick="switchTab('videos')" id="tab-videos" class="nav-tab px-4 py-2.5 rounded-xl font-semibold text-sm transition flex items-center gap-2 text-slate-600 hover:bg-slate-100">
+                        <i class="fa-solid fa-circle-play text-base text-red-500"></i> Video Recordings
+                    </button>
+                </div>
+                
+                <button onclick="openAdminModal()" id="admin-portal-btn" class="hidden ml-4 px-3.5 py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-xs font-semibold items-center gap-2 transition flex-shrink-0">
+                    <i class="fa-solid fa-user-gear"></i> Admin Portal
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dynamic Content Wrapper -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+        <!-- SECTION 1: PUBLIC SCHEDULE DISPLAY -->
+        <section id="section-schedule" class="tab-content block">
+            <!-- Welcome Banner Card -->
+            <div class="mb-8 p-6 bg-gradient-to-r from-blue-50 to-teal-50 border border-blue-100 rounded-3xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <span class="bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">Live Orientation Schedule</span>
+                    <h2 class="text-2xl font-bold font-display text-slate-900">Interactive 10-Day Session Roadmap</h2>
+                    <p class="text-slate-600 text-sm max-w-2xl">
+                        Sessions are conducted daily online via Google Meet. Click on <strong>"Join Live Meet"</strong> or access assigned course material links for each session below.
+                    </p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="text-center px-4 py-3 bg-white rounded-2xl shadow-sm border border-slate-200">
+                        <div class="text-xl font-extrabold text-jce-blue" id="stat-total-sessions">16</div>
+                        <div class="text-xs text-slate-500 uppercase font-medium">Sessions</div>
+                    </div>
+                    <div class="text-center px-4 py-3 bg-white rounded-2xl shadow-sm border border-slate-200">
+                        <div class="text-xl font-extrabold text-teal-600">90 Min</div>
+                        <div class="text-xs text-slate-500 uppercase font-medium">Daily Slot</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule Filter / Search Bar -->
+            <div class="mb-6 flex flex-col sm:flex-row gap-4 items-center justify-between">
+                <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0">
+                    <button onclick="filterSchedule('all')" id="filter-all" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-jce-blue text-white shadow-sm">All Days</button>
+                    <button onclick="filterSchedule('week1')" id="filter-week1" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-200 text-slate-700 hover:bg-slate-300">Week 1 (Aug 4-8)</button>
+                    <button onclick="filterSchedule('week2')" id="filter-week2" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-200 text-slate-700 hover:bg-slate-300">Week 2 (Aug 10-14)</button>
+                </div>
+                <div class="relative w-full sm:w-64">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-xs"></i>
+                    <input type="text" id="schedule-search" oninput="searchSchedule()" placeholder="Search topic or speaker..." class="w-full pl-9 pr-4 py-2 bg-white border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-jce-blue focus:outline-none">
+                </div>
+            </div>
+
+            <!-- Schedule Grid -->
+            <div id="schedule-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                <!-- Populated via JavaScript -->
+            </div>
+        </section>
+
+        <!-- SECTION 2: STUDENT ENGAGEMENT ACTIVITIES -->
+        <section id="section-activities" class="tab-content hidden">
+            <!-- Student Identity Registration Box -->
+            <div class="bg-white border-2 border-jce-blue/20 p-6 rounded-3xl shadow-md mb-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-id-card text-jce-blue"></i> Student Participant Profile
+                        </h3>
+                        <p class="text-xs text-slate-500">Enter your student details below so your activity scores are synced to the JCE Leaderboard!</p>
+                    </div>
+                    <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full" id="profile-status-badge">
+                        <i class="fa-solid fa-circle-check"></i> Profile Active
+                    </span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" id="student-name" placeholder="e.g. Rahul Patil" onchange="saveStudentProfile()" class="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-jce-blue focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Engineering Branch <span class="text-red-500">*</span></label>
+                        <select id="student-branch" onchange="saveStudentProfile()" class="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-jce-blue focus:outline-none bg-white">
+                            <option value="">Select Department</option>
+                            <option value="Computer Science (CSE)">Computer Science (CSE)</option>
+                            <option value="Artificial Intelligence & Machine Learning (AI&ML)">Artificial Intelligence & Machine Learning (AI&ML)</option>
+                            <option value="Electronics & Comm. (ECE)">Electronics & Comm. (ECE)</option>
+                            <option value="Electrical & Electronics (EEE)">Electrical & Electronics (EEE)</option>
+                            <option value="Mechanical Engg. (ME)">Mechanical Engg. (ME)</option>
+                            <option value="Civil Engg. (CV)">Civil Engg. (CV)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">USN / Application Ref No.</label>
+                        <input type="text" id="student-usn" placeholder="e.g. 2JI26CS001 (Optional)" onchange="saveStudentProfile()" class="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-jce-blue focus:outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activities Overview -->
+            <div class="text-center max-w-2xl mx-auto mb-6">
+                <h2 class="text-3xl font-extrabold font-display text-slate-900">Interactive Engineering Challenges</h2>
+                <p class="text-slate-600 text-sm mt-1">Select an orientation day below (Day 1 to Day 10) to access daily subject mini-games, earn points, and climb the leaderboard!</p>
+            </div>
+
+            <!-- DAY SELECTOR BAR -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-3 shadow-sm mb-6 flex items-center justify-between gap-2 overflow-x-auto">
+                <span class="text-xs font-bold text-slate-700 whitespace-nowrap pl-2 flex items-center gap-1.5">
+                    <i class="fa-solid fa-calendar-days text-jce-blue"></i> Select Activity Day:
+                </span>
+                <div class="flex gap-1.5 min-w-max" id="day-selector-buttons">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- Games Sub-Tabs Selector -->
+            <div class="flex overflow-x-auto gap-2 mb-8 pb-2 border-b border-slate-200">
+                <button onclick="switchGame('crossword')" id="game-tab-crossword" class="game-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs transition flex items-center gap-2 bg-jce-blue text-white shadow-sm">
+                    ✏️ 1. JCE Vocab Crossword
+                </button>
+                <button onclick="switchGame('physics')" id="game-tab-physics" class="game-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs transition flex items-center gap-2 bg-slate-100 text-slate-700 hover:bg-slate-200">
+                    🚀 2. Physics Vector Lab
+                </button>
+                <button onclick="switchGame('math')" id="game-tab-math" class="game-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs transition flex items-center gap-2 bg-slate-100 text-slate-700 hover:bg-slate-200">
+                    🔢 3. Math Matrix Quest
+                </button>
+                <button onclick="switchGame('chemistry')" id="game-tab-chemistry" class="game-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs transition flex items-center gap-2 bg-slate-100 text-slate-700 hover:bg-slate-200">
+                    🧪 4. Chemistry & Materials
+                </button>
+                <button onclick="switchGame('emoji')" id="game-tab-emoji" class="game-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs transition flex items-center gap-2 bg-slate-100 text-slate-700 hover:bg-slate-200">
+                    🧩 5. Emoji-neering
+                </button>
+            </div>
+
+            <!-- GAME 1: CROSSWORD -->
+            <div id="game-crossword" class="game-container block">
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-slate-100 gap-4">
+                        <div>
+                            <span id="cw-day-badge" class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Day 1 Board</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1">JCE Vocab & Engineering Crossword</h3>
+                            <p class="text-xs text-slate-500">Read the hints below and fill in the missing letters in the crossword grid!</p>
+                        </div>
+                        <div class="bg-blue-50 text-blue-700 px-4 py-2 rounded-2xl text-xs font-bold border border-blue-200">
+                            Points Available: <span class="text-base text-blue-900">50 pts</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 my-6" id="crossword-board-wrapper">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center">
+                        <span id="crossword-status" class="text-xs font-semibold text-slate-600">Enter letters in the grid to verify your answers.</span>
+                        <button onclick="submitCrosswordGame()" class="bg-jce-blue hover:bg-blue-800 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check"></i> Check & Submit Crossword
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GAME 2: PHYSICS -->
+            <div id="game-physics" class="game-container hidden">
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-slate-100 gap-4">
+                        <div>
+                            <span id="physics-day-badge" class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Day 1 Physics Lab</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1" id="physics-day-title">Projectile & Vector Target Challenge</h3>
+                            <p class="text-xs text-slate-500" id="physics-day-desc">Adjust launcher angle and launch velocity to land the engineering payload inside the designated target zone!</p>
+                        </div>
+                        <div class="bg-emerald-50 text-emerald-700 px-4 py-2 rounded-2xl text-xs font-bold border border-emerald-200">
+                            Points Available: <span class="text-base text-emerald-900">50 pts</span>
+                        </div>
+                    </div>
+
+                    <div class="my-6 space-y-6" id="physics-content-container">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center mt-4">
+                        <span id="physics-status-text" class="text-xs text-slate-600 font-medium">Complete all physics trials to unlock full score submission.</span>
+                        <button onclick="submitPhysicsGame()" id="btn-submit-physics" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition cursor-pointer shadow-md">
+                            Submit Physics Score
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GAME 3: MATH -->
+            <div id="game-math" class="game-container hidden">
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-slate-100 gap-4">
+                        <div>
+                            <span id="math-day-badge" class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Day 1 Math Challenge</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1" id="math-day-title">Engineering Determinants & Multi-Day Math Quest</h3>
+                            <p class="text-xs text-slate-500">Solve these fundamental engineering calculations for today's orientation topic!</p>
+                        </div>
+                        <div class="bg-amber-50 text-amber-700 px-4 py-2 rounded-2xl text-xs font-bold border border-amber-200">
+                            Points Available: <span class="text-base text-amber-900">50 pts</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-6" id="math-questions-container">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center">
+                        <span id="math-status" class="text-xs text-slate-600 font-medium">Complete all engineering math questions to claim points.</span>
+                        <button onclick="submitMathGame()" class="bg-amber-600 hover:bg-amber-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition flex items-center gap-2">
+                            <i class="fa-solid fa-calculator"></i> Submit Math Answers
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GAME 4: CHEMISTRY -->
+            <div id="game-chemistry" class="game-container hidden">
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-slate-100 gap-4">
+                        <div>
+                            <span id="chem-day-badge" class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Day 1 Chemistry Lab</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1" id="chem-day-title">Engineering Element & Material Identification</h3>
+                            <p class="text-xs text-slate-500">Identify materials, chemical principles, and engineering substances for today!</p>
+                        </div>
+                        <div class="bg-teal-50 text-teal-700 px-4 py-2 rounded-2xl text-xs font-bold border border-teal-200">
+                            Points Available: <span class="text-base text-teal-900">50 pts</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-6" id="chem-quiz-container">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center">
+                        <span id="chem-status" class="text-xs text-slate-600 font-medium">Select correct answers for all prompts.</span>
+                        <button onclick="submitChemistryGame()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition flex items-center gap-2">
+                            <i class="fa-solid fa-vial"></i> Submit Chemistry Quest
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GAME 5: EMOJI -->
+            <div id="game-emoji" class="game-container hidden">
+                <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-slate-100 gap-4">
+                        <div>
+                            <span id="emoji-day-badge" class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Day 1 Activity</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1">Emoji-neering Rebus Challenge</h3>
+                            <p class="text-xs text-slate-500">Decode the emoji combinations to reveal engineering terms and JCE Belagavi campus references!</p>
+                        </div>
+                        <div class="bg-purple-50 text-purple-700 px-4 py-2 rounded-2xl text-xs font-bold border border-purple-200">
+                            Points Available: <span class="text-base text-purple-900">50 pts</span>
+                        </div>
+                    </div>
+
+                    <div id="emoji-puzzle-list" class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center">
+                        <span id="emoji-status-text" class="text-xs text-slate-500 font-medium">Solve all rebus puzzles to submit.</span>
+                        <button onclick="submitEmojiGame()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Emoji Answers
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: LEADERBOARD -->
+        <section id="section-leaderboard" class="tab-content hidden">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+                <!-- Header & Controls -->
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+                    <div>
+                        <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-bold uppercase mb-1">
+                            <i class="fa-solid fa-crown"></i> Hall of Fame
+                        </div>
+                        <h2 class="text-2xl font-extrabold font-display text-slate-900">Student Leaderboard</h2>
+                        <p class="text-xs text-slate-500">Ranking based on points earned across all orientation activities.</p>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3">
+                        <select id="leaderboard-branch-filter" onchange="renderLeaderboard()" class="px-3.5 py-2 border border-slate-300 rounded-xl text-xs font-semibold text-slate-700 bg-white focus:outline-none">
+                            <option value="ALL">All Departments</option>
+                            <option value="Computer Science (CSE)">CSE</option>
+                            <option value="Artificial Intelligence & Machine Learning (AI&ML)">AIML</option>
+                            <option value="Electronics & Comm. (ECE)">ECE</option>
+                            <option value="Electrical & Electronics (EEE)">EEE</option>
+                            <option value="Mechanical Engg. (ME)">ME</option>
+                            <option value="Civil Engg. (CV)">CV</option>
+                        </select>
+
+                        <button onclick="exportLeaderboardCSV()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs transition flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-file-excel"></i> Export CSV
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Leaderboard Table -->
+                <div class="overflow-x-auto mt-6">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 text-slate-500 uppercase text-[11px] font-bold tracking-wider border-b border-slate-200">
+                                <th class="py-3 px-4">Rank</th>
+                                <th class="py-3 px-4">Student Name</th>
+                                <th class="py-3 px-4">Department</th>
+                                <th class="py-3 px-4">USN / Ref</th>
+                                <th class="py-3 px-4 text-center">Activities Completed</th>
+                                <th class="py-3 px-4 text-right">Total Points</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-body" class="divide-y divide-slate-100 text-xs">
+                            <!-- Populated dynamically via JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="leaderboard-empty" class="hidden text-center py-12">
+                    <i class="fa-solid fa-trophy text-4xl text-slate-300 mb-3"></i>
+                    <p class="text-sm font-semibold text-slate-600">No submissions recorded yet!</p>
+                    <p class="text-xs text-slate-400">Head over to the Student Activity Hub to complete challenges and claim your spot.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: FEEDBACK SURVEY -->
+        <section id="section-feedback" class="tab-content hidden">
+            <div id="feedback-survey-wrapper" class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm max-w-4xl mx-auto space-y-6">
+                <div class="pb-6 border-b border-slate-200">
+                    <span class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Orientation Evaluation</span>
+                    <h2 class="text-2xl font-extrabold font-display text-slate-900 mt-2">10-Day Student Experience & Feedback Survey</h2>
+                    <p class="text-slate-600 text-xs sm:text-sm mt-1 leading-relaxed">
+                        Welcome to Jain College of Engineering! As you complete your 10-day Freshmen Orientation Hub experience, we invite you to reflect upon your overall transition, level of engagement with interactive sessions, and readiness for academic excellence. Please complete this questionnaire thoughtfully; your honest feedback helps shape future orientation programs. Completing this survey will automatically unlock your official **Digital Certificate of Attendance**.
+                    </p>
+                </div>
+
+                <div id="feedback-locked-notice" class="hidden p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-900 text-xs font-semibold flex items-center gap-3">
+                    <i class="fa-solid fa-lock text-amber-600 text-base flex-shrink-0"></i>
+                    <span>Feedback collection is currently disabled by the orientation program coordinator.</span>
+                </div>
+
+                <form id="feedback-form" onsubmit="submitFeedback(event)" class="space-y-6">
+                    <div id="feedback-questions-list" class="space-y-6">
+                        <!-- Populated dynamically -->
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <span class="text-xs text-slate-500 font-medium"><i class="fa-solid fa-shield-halved text-teal-600"></i> Responses are recorded securely for quality assurance.</span>
+                        <button type="submit" class="w-full sm:w-auto px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl text-xs transition shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Feedback & Unlock Certificate
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CERTIFICATE OF ATTENDANCE -->
+        <section id="section-certificate" class="tab-content hidden">
+            <!-- Conditional Locked Card -->
+            <div id="certificate-locked-container" class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm text-center max-w-2xl mx-auto space-y-4">
+                <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto text-3xl">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="text-2xl font-bold font-display text-slate-900">Certificate Locked</h3>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    To generate and view your official **Certificate of Attendance for the Student Induction Program 2026**, please ensure you have filled out your profile details and submitted the 10-day Orientation Feedback Survey.
+                </p>
+                <div class="pt-2">
+                    <button onclick="switchTab('feedback')" class="px-6 py-2.5 bg-jce-blue hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition inline-flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i> Go to Feedback Survey
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active Printable Certificate Container -->
+            <div id="certificate-unlocked-container" class="hidden space-y-6">
+                <div class="no-print flex justify-between items-center bg-white p-4 rounded-2xl border border-slate-200 shadow-sm max-w-5xl mx-auto">
+                    <div class="flex items-center gap-2 text-emerald-700 font-bold text-xs">
+                        <i class="fa-solid fa-circle-check text-base"></i> Orientation Requirements Met & Verified!
+                    </div>
+                    <button onclick="window.print()" class="px-5 py-2.5 bg-jce-navy hover:bg-slate-800 text-white font-bold rounded-xl text-xs transition flex items-center gap-2 shadow-md">
+                        <i class="fa-solid fa-print"></i> Print / Download PDF
+                    </button>
+                </div>
+
+                <!-- CERTIFICATE DISPLAY BOARD -->
+                <div id="printable-certificate" class="bg-white border-[10px] border-jce-navy p-8 sm:p-12 rounded-3xl shadow-2xl max-w-5xl mx-auto relative overflow-hidden space-y-6">
+                    <!-- Corner Decorative Elements -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-400/20 rounded-bl-full pointer-events-none"></div>
+                    <div class="absolute bottom-0 left-0 w-32 h-32 bg-jce-blue/10 rounded-tr-full pointer-events-none"></div>
+
+                    <!-- Header -->
+                    <div class="text-center space-y-2 border-b-2 border-amber-400/60 pb-6">
+                        <h1 class="text-3xl sm:text-4xl font-black font-display text-jce-navy uppercase tracking-tight">
+                            Jain College of Engineering, Belagavi
+                        </h1>
+                        <p class="text-xs sm:text-sm text-slate-600 font-semibold tracking-wider">
+                            Approved by AICTE, New Delhi & Affiliated to VTU, Belagavi | Accredited by NBA
+                        </p>
+                        <div class="pt-2">
+                            <span class="bg-jce-navy text-jce-gold text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest inline-block shadow-sm">
+                                Certificate of Attendance
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Certificate Content -->
+                    <div class="text-center space-y-4 py-4">
+                        <p class="text-slate-600 text-xs sm:text-sm uppercase tracking-widest font-bold">This is to certify that</p>
+                        <h2 id="cert-student-name" class="text-3xl sm:text-4xl font-extrabold text-jce-blue font-display underline decoration-amber-400 underline-offset-8">
+                            Rahul Patil
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-700 max-w-2xl mx-auto leading-relaxed">
+                            USN / Ref: <strong id="cert-student-usn" class="font-mono text-slate-900">2JI26CS001</strong> &bull; Department of <strong id="cert-student-branch" class="text-slate-900">Computer Science (CSE)</strong>
+                        </p>
+                        <p class="text-xs sm:text-sm text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                            has actively participated in and successfully completed the 10-Day **Student Induction Program 2026** conducted from **August 04 to August 14, 2026** at Jain College of Engineering, Belagavi.
+                        </p>
+                    </div>
+
+                    <!-- Itemized Attendance Grid -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-xs space-y-2">
+                        <h4 class="font-bold text-jce-navy uppercase text-[11px] tracking-wider border-b border-slate-200 pb-1">Verified Program Milestones & Engagement Record:</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-700">
+                            <div>• 10-Day Orientation Roadmap & Keynotes Completed</div>
+                            <div>• Interactive Subject Labs (Physics, Math, Chem) Passed</div>
+                            <div>• Skill Development & Placement Orientation Attended</div>
+                            <div>• Official Feedback & Evaluation Survey Submitted</div>
+                        </div>
+                    </div>
+
+                    <!-- Signatory Lines (5 Authorized Signatories) -->
+                    <div class="pt-8 grid grid-cols-2 sm:grid-cols-5 gap-4 text-center text-[10px] sm:text-[11px] border-t border-slate-200">
+                        <div class="space-y-1">
+                            <div class="font-serif italic font-bold text-slate-800 text-sm h-8 flex items-end justify-center">Dr. Shivkumar Math</div>
+                            <div class="border-t border-slate-400 pt-1 font-bold text-slate-900">Program Coordinator</div>
+                            <div class="text-slate-500">HOD - Physics</div>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="font-serif italic font-bold text-slate-800 text-sm h-8 flex items-end justify-center">Prof. Pooja M Jarali</div>
+                            <div class="border-t border-slate-400 pt-1 font-bold text-slate-900">Co-Coordinator</div>
+                            <div class="text-slate-500">Dept. of Mathematics</div>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="font-serif italic font-bold text-slate-800 text-sm h-8 flex items-end justify-center">Dr. Prashant Patil</div>
+                            <div class="border-t border-slate-400 pt-1 font-bold text-slate-900">1st Year Coordinator</div>
+                            <div class="text-slate-500">Basic Sciences</div>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="font-serif italic font-bold text-slate-800 text-sm h-8 flex items-end justify-center">Dr. R. C. Patil</div>
+                            <div class="border-t border-slate-400 pt-1 font-bold text-slate-900">Dean Academics</div>
+                            <div class="text-slate-500">JCE Belagavi</div>
+                        </div>
+                        <div class="space-y-1 col-span-2 sm:col-span-1">
+                            <div class="font-serif italic font-bold text-slate-800 text-sm h-8 flex items-end justify-center">Dr. J. Shivakumar</div>
+                            <div class="border-t border-slate-400 pt-1 font-bold text-slate-900">Principal & Director</div>
+                            <div class="text-slate-500">JCE Belagavi</div>
+                        </div>
+                    </div>
+
+                    <!-- Verification Badge & Footer -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100 text-[10px] text-slate-500">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-slate-900 p-1 rounded-lg flex items-center justify-center text-white">
+                                <i class="fa-solid fa-qrcode text-2xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-slate-800">Digital Certificate Verification</div>
+                                <div>Certificate ID: <span id="cert-id-number" class="font-mono font-bold text-jce-blue">JCE-2026-SIP-89421</span></div>
+                                <div>Issued: August 14, 2026</div>
+                            </div>
+                        </div>
+                        <div class="text-center sm:text-right">
+                            <span class="inline-flex items-center gap-1 bg-emerald-50 text-emerald-800 font-bold px-2.5 py-1 rounded-full border border-emerald-200">
+                                <i class="fa-solid fa-shield-check"></i> Authenticity Verified
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: VIDEO RECORDINGS GALLERY -->
+        <section id="section-videos" class="tab-content hidden">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+                <div class="pb-6 border-b border-slate-200 mb-6">
+                    <h2 class="text-2xl font-extrabold font-display text-slate-900">Session Recordings & Orientation Media</h2>
+                    <p class="text-xs text-slate-500">Watch recorded sessions, Google Meet highlights, and JCE introductory presentations.</p>
+                </div>
+
+                <div id="video-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL: VIDEO PLAYER -->
+    <div id="video-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 rounded-3xl max-w-4xl w-full overflow-hidden border border-slate-800 shadow-2xl flex flex-col">
+            <div class="p-4 bg-slate-950 flex items-center justify-between text-white border-b border-slate-800">
+                <h3 id="video-modal-title" class="font-bold text-sm truncate">Session Recording Playback</h3>
+                <button onclick="closeVideoModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center text-xs">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="relative aspect-video bg-black flex items-center justify-center" id="video-modal-body">
+                <!-- Dynamic Player Embed -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: ADMIN PORTAL EDITING & MANAGEMENT -->
+    <div id="admin-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-4xl w-full my-8 shadow-2xl border border-slate-200 overflow-hidden">
+            
+            <!-- Admin Header -->
+            <div class="bg-jce-navy text-white p-6 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-900 font-bold flex items-center justify-center">
+                        <i class="fa-solid fa-user-shield text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display">Coordinator Admin Dashboard</h3>
+                        <p class="text-xs text-slate-300">Dr. Shivkumar Math — Session, Feedback & Workflow Suite</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminModal()" class="text-slate-300 hover:text-white text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Admin Authentication Screen -->
+            <div id="admin-auth-screen" class="p-8 text-center space-y-4 max-w-md mx-auto">
+                <div class="w-16 h-16 bg-blue-50 text-jce-blue rounded-full flex items-center justify-center mx-auto text-2xl">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900">Protected Area</h4>
+                <p class="text-xs text-slate-500">Please enter the coordinator access password to edit session details, custom feedback questions, Meet links, or workflow toggles.</p>
+                <div class="space-y-3">
+                    <input type="password" id="admin-password-input" placeholder="Enter Passcode" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl text-xs text-center focus:ring-2 focus:ring-jce-blue focus:outline-none font-bold">
+                    <button onclick="authenticateAdmin()" class="w-full py-2.5 bg-jce-blue hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition">
+                        Unlock Coordinator Panel
+                    </button>
+                    <p id="admin-auth-error" class="text-xs text-red-500 font-semibold hidden">Incorrect passcode! Contact Coordinator Dr. Shivkumar Math.</p>
+                </div>
+            </div>
+
+            <!-- Admin Editor Panel Content -->
+            <div id="admin-panel-content" class="hidden p-6 space-y-6">
+                <!-- Global Workflow Toggles -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
+                    <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-jce-blue"></i> Global Workflow Toggles
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <label class="flex items-center justify-between p-3 bg-white rounded-xl border border-slate-200 cursor-pointer">
+                            <span class="text-xs font-bold text-slate-700">Feedback Survey Gateway</span>
+                            <input type="checkbox" id="toggle-admin-feedback" onchange="toggleFeedbackGateway(this.checked)" class="accent-teal-600 w-4 h-4">
+                        </label>
+                        <label class="flex items-center justify-between p-3 bg-white rounded-xl border border-slate-200 cursor-pointer">
+                            <span class="text-xs font-bold text-slate-700">Certificate Generation Gateway</span>
+                            <input type="checkbox" id="toggle-admin-certificate" onchange="toggleCertificateGateway(this.checked)" class="accent-jce-blue w-4 h-4">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Custom Feedback Question Builder -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-clipboard-question text-teal-600"></i> Feedback Questionnaire Builder
+                        </h4>
+                        <button onclick="addAdminQuestion()" class="px-3 py-1 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-bold transition flex items-center gap-1">
+                            <i class="fa-solid fa-plus"></i> Add Question
+                        </button>
+                    </div>
+                    <div id="admin-feedback-questions-list" class="space-y-3 max-h-48 overflow-y-auto pr-1">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+
+                <!-- Schedule Management Section -->
+                <div class="flex flex-wrap gap-3 justify-between items-center bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                    <button onclick="addNewSession()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs transition flex items-center gap-2">
+                        <i class="fa-solid fa-plus"></i> Add New Session
+                    </button>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="exportUpdatedHTML()" class="px-3.5 py-2 bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold rounded-xl text-xs transition flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-file-code"></i> Export Updated HTML
+                        </button>
+                        <button onclick="resetScheduleToDefault()" class="px-3.5 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-xl text-xs transition">
+                            <i class="fa-solid fa-rotate-left"></i> Reset Defaults
+                        </button>
+                        <button onclick="clearAllLeaderboardData()" class="px-3.5 py-2 bg-red-100 hover:bg-red-200 text-red-700 font-bold rounded-xl text-xs transition">
+                            <i class="fa-solid fa-trash-can"></i> Clear Leaderboard
+                        </button>
+                    </div>
+                </div>
+
+                <div id="admin-sessions-editor-list" class="space-y-4 max-h-[40vh] overflow-y-auto pr-2">
+                    <!-- Populated via JS -->
+                </div>
+
+                <div class="pt-4 border-t border-slate-200 flex justify-end">
+                    <button onclick="saveAdminSessions()" class="px-6 py-2.5 bg-jce-blue hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-floppy-disk"></i> Save All Changes
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-300 border-t border-slate-800 mt-12 py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left text-xs">
+            <div class="space-y-1">
+                <p class="font-bold text-white text-sm">Jain College of Engineering (JCE), Belagavi</p>
+                <p class="text-slate-400">599/2, T.S. Nagar Hunchanhatti Road Machhe Belagavi 590014, Karnataka, India</p>
+                <p class="text-slate-500">Affiliated to VTU, Belagavi & Approved by AICTE, New Delhi, Accredited by NBA (Dept. of CVE, CSE, ECE and EEE).</p>
+            </div>
+            <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 space-y-1 text-slate-300 max-w-lg">
+                <p class="font-bold text-amber-400 text-xs uppercase tracking-wider">Student Orientation Program Coordinator</p>
+                <p class="text-white font-semibold text-sm">Dr. Shivkumar Math</p>
+                <p class="text-slate-400">HOD - Physics, Jain College of Engineering, Belagavi</p>
+                <p class="text-slate-300 pt-1">
+                    <i class="fa-solid fa-envelope text-amber-400 mr-1"></i> shivuphy@jainbgm.in &nbsp;|&nbsp; 
+                    <i class="fa-solid fa-phone text-amber-400 mr-1"></i> 9964515505
+                </p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-6 pt-4 border-t border-slate-800 text-center text-[11px] text-slate-500">
+            &copy; 2026 Jain College of Engineering, Belagavi. Interactive Orientation Portal.
+        </div>
+    </footer>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
+
+    <script>
+        // Target Credentials for Production Cutover (REPLACE WITH YOUR NEW FIREBASE PROJECT KEYS)
+        const firebaseConfig = {
+            apiKey: "AIzaSyByiGBXzQoRZWqvhCjraqCv7KZjm7QhDw8",
+            authDomain: "jce-orientation-webhub-2026.firebaseapp.com",
+            databaseURL: "https://jce-orientation-webhub-2026-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "jce-orientation-webhub-2026",
+            storageBucket: "jce-orientation-webhub-2026.firebasestorage.app",
+            messagingSenderId: "715943467757",
+            appId: "1:715943467757:web:3ec727f73c5ea293a38ae4"
+        };
+
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const db = firebase.database();
+        const leaderboardRef = db.ref('leaderboard');
+        const sessionsRef = db.ref('sessions');
+
+        // Default orientation session schedule
+        const defaultSchedule = [
+            {
+                "dayNum": 1,
+                "dayOfWeek": "Tuesday",
+                "dateStr": "Aug 04, 2026",
+                "week": "week1",
+                "timeSlot": "10:00 AM - 10:45 AM (Part 1)",
+                "topic": "Welcome to Engineering Excellence : Orientation Inauguration and Academic Vision — Part I",
+                "speaker": "Dr. J. Shivakumar, Principal & Director, JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Inaugural session introducing VTU regulations, academic curriculum, and institutional vision.",
+                "meetLink": "https://meet.google.com/vgp-yrzy-ysd",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 1,
+                "dayOfWeek": "Tuesday",
+                "dateStr": "Aug 04, 2026",
+                "week": "week1",
+                "timeSlot": "11:00 AM - 11:30 AM",
+                "topic": "Engineering College Culture",
+                "speaker": "Dr. Rajashekargouda C. Patil, Dean Academics, JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Overview of engineering disciplines, academic guidelines, and campus culture.",
+                "meetLink": "https://meet.google.com/vgp-yrzy-ysd",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 2,
+                "dayOfWeek": "Wednesday",
+                "dateStr": "Aug 05, 2026",
+                "week": "week1",
+                "timeSlot": "10:30 AM - 11:30 AM",
+                "topic": "Student Engagement Cell at JCE :The Spectrum Council",
+                "speaker": "Dr. Varsha Gokak, Asst. Professor, Civil Engg., JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "A broad range of activities built on structural order and student empowerment.",
+                "meetLink": "https://meet.google.com/wcp-wtqu-hnz",
+                "secondMeetLink": "https://meet.google.com/nju-zzmf-ozt",
+                "meetInstructions": "If the first Google Meet link is full, please join with the second Google Meet link.",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 3,
+                "dayOfWeek": "Thursday",
+                "dateStr": "Aug 06, 2026",
+                "week": "week1",
+                "timeSlot": "10:30 AM - 11:30 AM",
+                "topic": "Energy Literacy Cell: Fueling Awareness, Saving Nature",
+                "speaker": "Prof. Yogish Chavadi, Asst. Prof. EEE Dept. JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Promoting clean energy awareness, sustainability, and ecological conservation.",
+                "meetLink": "https://meet.google.com/eev-vkqh-kaz",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 4,
+                "dayOfWeek": "Friday",
+                "dateStr": "Aug 07, 2026",
+                "week": "week1",
+                "timeSlot": "10:30 AM - 11:30 AM",
+                "topic": "Yuva AI for All: Ethical AI use for study, work, and everyday life",
+                "speaker": "Dr. Shrivatsa D Perur, Assoc. Professor, CSE, JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Learn fundamentals of artificial intelligence, practical productivity tools, and ethical AI usage.",
+                "meetLink": "https://meet.google.com/gcm-uhyt-aiw",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 5,
+                "dayOfWeek": "Saturday",
+                "dateStr": "Aug 08, 2026",
+                "week": "week1",
+                "timeSlot": "10:30 AM - 11:30 AM",
+                "topic": "NISM:Financial literacy Course for Bharat",
+                "speaker": "Dr. S.RohitRaj Professor & HOD, MBA-Dept, JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Equips learners with essential financial knowledge, budgeting, and investment literacy.",
+                "meetLink": "https://meet.google.com/wtr-jkim-gmk",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 7,
+                "dayOfWeek": "Monday",
+                "dateStr": "Aug 10, 2026",
+                "week": "week2",
+                "timeSlot": "10:30 AM - 11:30 AM",
+                "topic": "Know Your Department: Computer Science & Engineering (CSE)",
+                "speaker": "Dr. Uttam Patil, Professor & HOD - Computer Science Engg. JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Department orientation covering algorithms, software development labs, and computing career paths.",
+                "meetLink": "https://meet.google.com/odq-fawj-cse",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 7,
+                "dayOfWeek": "Monday",
+                "dateStr": "Aug 10, 2026",
+                "week": "week2",
+                "timeSlot": "10:30 AM - 11:30 AM",
+                "topic": "Know Your Department: Artificial Intelligence & Machine Learning (AI&ML)",
+                "speaker": "Dr. Sachinkumar. Professor & HOD, AIML, JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Insights into AI models, neural networks, machine learning algorithms, and intelligent systems.",
+                "meetLink": "https://meet.google.com/guo-hdfy-fjo",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 7,
+                "dayOfWeek": "Monday",
+                "dateStr": "Aug 10, 2026",
+                "week": "week2",
+                "timeSlot": "10:45 AM - 11:30 AM",
+                "topic": "Know Your Department: Electronics & Communication Engineering (ECE)",
+                "speaker": "Dr. Vinayakumar R. Bagali. Professor & HOD, ECE, JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Introduction to signal processing, semiconductor circuits, wireless systems, and IoT hardware.",
+                "meetLink": "https://meet.google.com/ntn-rpxq-fqm",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 7,
+                "dayOfWeek": "Monday",
+                "dateStr": "Aug 10, 2026",
+                "week": "week2",
+                "timeSlot": "10:45 AM - 11:30 AM",
+                "topic": "Know Your Department: Electrical & Electronics Engineering (EEE)",
+                "speaker": "Dr. Mallikarjuna G. D., Associate Professor & HOD, EEE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Understanding power systems, renewable energy grids, electric vehicles, and circuit automation.",
+                "meetLink": "https://meet.google.com/hzq-wbus-duk",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 7,
+                "dayOfWeek": "Monday",
+                "dateStr": "Aug 10, 2026",
+                "week": "week2",
+                "timeSlot": "11:00 AM - 11:30 AM",
+                "topic": "Know Your Department: Civil Engineering",
+                "speaker": "Dr. Mithun B.M. Professor & HOD, Civil Engg, JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Structural engineering fundamentals, sustainable infrastructure, surveying, and smart city architecture.",
+                "meetLink": "https://meet.google.com/aiy-fbjq-psd",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 7,
+                "dayOfWeek": "Monday",
+                "dateStr": "Aug 10, 2026",
+                "week": "week2",
+                "timeSlot": "11:00 AM - 11:30 AM",
+                "topic": "Know Your Department: Mechanical Engineering",
+                "speaker": "Dr. B. V. Hubballi Professor & HOD, Mech, JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "3D CAD modeling, robotics, thermodynamics, manufacturing technologies, and mechanical systems.",
+                "meetLink": "https://meet.google.com/wgb-vskn-deq",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 8,
+                "dayOfWeek": "Tuesday",
+                "dateStr": "Aug 11, 2026",
+                "week": "week2",
+                "timeSlot": "10:30 AM - 11:30 AM",
+                "topic": "Universal Human Values (UHV)",
+                "speaker": "Dr. Jayashri Rudagi Professor, ECE, UHV-Coordinator, JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Right understanding, ensuring harmony at all levels of living, and balancing technical skills with moral responsibility.",
+                "meetLink": "https://meet.google.com/fjz-nxwj-ums",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 9,
+                "dayOfWeek": "Wednesday",
+                "dateStr": "Aug 12, 2026",
+                "week": "week2",
+                "timeSlot": "10:30 AM - 11:30 AM",
+                "topic": "Skill Development & Internship Cell: Bridge to Brilliance [Play with Skills. Test with Internships.]",
+                "speaker": "Dr. Ratan Patil, Dean, Skill Development & Internship Cell, JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Hands-on skill building programs, industry certifications, and corporate internship opportunities.",
+                "meetLink": "https://meet.google.com/sxc-hgfy-dwi",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 10,
+                "dayOfWeek": "Thursday",
+                "dateStr": "Aug 13, 2026",
+                "week": "week2",
+                "timeSlot": "10:30 AM - 11:30 AM",
+                "topic": "Training & Placement at JCE",
+                "speaker": "Prof. Raghunandan Oza Assistant Professor, CSE, JCE-Belagavi",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Campus recruitment drives, career readiness, interview preparation, and placement statistics.",
+                "meetLink": "https://meet.google.com/jic-muyz-opw",
+                "videoLink": "",
+                "isGlowActive": false
+            },
+            {
+                "dayNum": 11,
+                "dayOfWeek": "Friday",
+                "dateStr": "Aug 14, 2026",
+                "week": "week2",
+                "timeSlot": "10:30 AM - 11:30 AM",
+                "topic": "Academic Roadmap for Semester 1 & Path Ahead",
+                "speaker": "Dr. Prashant Patil, Dr. Shivkumar Math, and Dr. Manuprasad B. K.",
+                "photoUrl": "",
+                "courseUrl": "",
+                "description": "Guidance on VTU examinations, grading systems, attendance requirements, and valedictory closing.",
+                "meetLink": "https://meet.google.com/eha-pwgk-gzx",
+                "videoLink": "",
+                "isGlowActive": false
+            }
+        ];
+
+        // Default feedback questionnaire targeting key dimensions
+        const defaultFeedbackQuestions = [
+            // Area 1: Web Hub Page Design & Usability
+            {
+                id: "q_design_1",
+                dimension: "Web Hub Design & Usability",
+                prompt: "How easy was it to navigate the Orientation Web Hub and locate daily schedules, meeting links, and activity challenges?",
+                type: "likert"
+            },
+            {
+                id: "q_design_2",
+                dimension: "Web Hub Design & Usability",
+                prompt: "How would you rate the visual design, readability, and mobile responsiveness of the Web Hub interface?",
+                type: "likert"
+            },
+            {
+                id: "q_design_3",
+                dimension: "Web Hub Design & Usability",
+                prompt: "What specific feature or section of the Web Hub design did you find most helpful during orientation, and what could make navigation smoother?",
+                type: "text"
+            },
+
+            // Area 2: Student Engagement Activities
+            {
+                id: "q_activity_1",
+                dimension: "Student Engagement Activities",
+                prompt: "How effective were the daily interactive challenges (Crosswords, Vector Physics Lab, Math Quest, Chemistry Quiz, Emoji-neering) in keeping you motivated?",
+                type: "likert"
+            },
+            {
+                id: "q_activity_2",
+                dimension: "Student Engagement Activities",
+                prompt: "To what extent did tracking your activity scores on the live Leaderboard encourage friendly competition and connection with your cohort?",
+                type: "likert"
+            },
+            {
+                id: "q_activity_3",
+                dimension: "Student Engagement Activities",
+                prompt: "Which specific mini-game or virtual lab did you enjoy most, and how did it help build your confidence for first-year engineering coursework?",
+                type: "text"
+            },
+
+            // Area 3: Google Meet Sessions
+            {
+                id: "q_meet_1",
+                dimension: "Google Meet Sessions",
+                prompt: "How informative and valuable were the daily live Google Meet sessions in introducing you to college life, departments, and academic expectations?",
+                type: "likert"
+            },
+            {
+                id: "q_meet_2",
+                dimension: "Google Meet Sessions",
+                prompt: "How seamless was your experience accessing live Google Meet links, secondary overflow links, and instructions on the roadmap?",
+                type: "likert"
+            },
+            {
+                id: "q_meet_3",
+                dimension: "Google Meet Sessions",
+                prompt: "Which Google Meet speaker or topic resonated with you the most, and what key advice will stay with you as classes begin?",
+                type: "text"
+            },
+
+            // Area 4: Memorable Moments & Reflections
+            {
+                id: "q_memory_1",
+                dimension: "Memorable Moments & Reflections",
+                prompt: "Reflecting on your 10-day transition, how would you rate your overall digital experience on the Freshmen Orientation Web Hub?",
+                type: "likert"
+            },
+            {
+                id: "q_memory_2",
+                dimension: "Memorable Moments & Reflections",
+                prompt: "Describe one specific moment or achievement on the Web Hub (e.g., earning a high score, completing a simulation, or unlocking your certificate) that stood out as the highlight of your orientation.",
+                type: "text"
+            },
+            {
+                id: "q_memory_3",
+                dimension: "Memorable Moments & Reflections",
+                prompt: "If you were describing the Orientation Web Hub to an incoming freshman next year, what highlight or advice would you share with them?",
+                type: "text"
+            }
+        ];
+
+        // Crossword dataset
+        const masterCrosswordGrids = {
+            1: {
+                rows: 10, cols: 6,
+                clues: [
+                    "1-Across: Binary language of computers (6 letters: B_N_R_Y)",
+                    "2-Across: Engineering campus located at Belagavi (3 letters: J_E)",
+                    "1-Down: Science dealing with forces, motion, and energy (7 letters: P_Y_I_S)",
+                    "2-Down: Law F = m × a formulated by Sir Isaac ______ (6 letters: N_W_O_N)"
+                ],
+                words: [
+                    { id: "1A", word: "BINARY", row: 4, col: 0, dir: "H" },
+                    { id: "2A", word: "JCE", row: 5, col: 0, dir: "H" },
+                    { id: "1D", word: "PHYSICS", row: 0, col: 1, dir: "V" },
+                    { id: "2D", word: "NEWTON", row: 4, col: 2, dir: "V" }
+                ]
+            },
+            2: {
+                rows: 5, cols: 7,
+                clues: [
+                    "1-Across: Process of creating technical blueprints (6 letters: D_S_G_N)",
+                    "2-Across: Software tool used for 3D modeling (3 letters: C_D)",
+                    "1-Down: Logical reasoning and decision gates in circuit design (5 letters: L_G_C)"
+                ],
+                words: [
+                    { id: "1A", word: "DESIGN", row: 2, col: 0, dir: "H" },
+                    { id: "2A", word: "CAD", row: 4, col: 4, dir: "H" },
+                    { id: "1D", word: "LOGIC", row: 0, col: 4, dir: "V" }
+                ]
+            },
+            3: {
+                rows: 6, cols: 9,
+                clues: [
+                    "1-Across: Information processed by computer (4 letters: D_T_A)",
+                    "2-Across: Step-by-step set of instructions in software (9 letters: A_G_R_I_T_H_M)",
+                    "1-Down: Popular programming language for AI and Data Science (6 letters: P_T_O_N)"
+                ],
+                words: [
+                    { id: "1A", word: "DATA", row: 2, col: 1, dir: "H" },
+                    { id: "2A", word: "ALGORITHM", row: 4, col: 0, dir: "H" },
+                    { id: "1D", word: "PYTHON", row: 0, col: 3, dir: "V" }
+                ]
+            },
+            4: {
+                rows: 5, cols: 10,
+                clues: [
+                    "1-Across: Closed path through which electric current flows (7 letters: C_R_U_I_T)",
+                    "2-Across: Device converting physical signal to electrical signal (6 letters: S_N_O_R)",
+                    "1-Down: Semiconductor allowing current in one direction (5 letters: D_O_D_E)"
+                ],
+                words: [
+                    { id: "1A", word: "CIRCUIT", row: 1, col: 3, dir: "H" },
+                    { id: "2A", word: "SENSOR", row: 2, col: 0, dir: "H" },
+                    { id: "1D", word: "DIODE", row: 0, col: 4, dir: "V" }
+                ]
+            },
+            5: {
+                rows: 5, cols: 5,
+                clues: [
+                    "1-Across: Rate of doing work or electrical power (5 letters: P_W_R)",
+                    "2-Across: Network of power lines distributing electricity (4 letters: G_I_D)",
+                    "1-Down: Device converting electrical energy to motion (5 letters: M_T_O_R)"
+                ],
+                words: [
+                    { id: "1A", word: "POWER", row: 1, col: 0, dir: "H" },
+                    { id: "2A", word: "GRID", row: 4, col: 0, dir: "H" },
+                    { id: "1D", word: "MOTOR", row: 0, col: 1, dir: "V" }
+                ]
+            },
+            6: {
+                rows: 6, cols: 8,
+                clues: [
+                    "1-Across: Mechanics dealing with bodies at rest (7 letters: S_A_I_C_S)",
+                    "2-Across: Programmable mechanical machine (5 letters: R_B_T)",
+                    "1-Down: Rotational force causing angular acceleration (6 letters: T_R_Q_U_E)"
+                ],
+                words: [
+                    { id: "1A", word: "STATICS", row: 0, col: 1, dir: "H" },
+                    { id: "2A", word: "ROBOT", row: 2, col: 2, dir: "H" },
+                    { id: "1D", word: "TORQUE", row: 0, col: 2, dir: "V" }
+                ]
+            },
+            7: {
+                rows: 6, cols: 7,
+                clues: [
+                    "1-Across: Member supporting transverse loads (4 letters: B_A_M)",
+                    "2-Across: Modern urban development concept (5 letters: S_A_R_T)",
+                    "1-Down: Hydraulic binder used in concrete (6 letters: C_M_N_T)"
+                ],
+                words: [
+                    { id: "1A", word: "BEAM", row: 1, col: 3, dir: "H" },
+                    { id: "2A", word: "SMART", row: 5, col: 0, dir: "H" },
+                    { id: "1D", word: "CEMENT", row: 0, col: 4, dir: "V" }
+                ]
+            },
+            8: {
+                rows: 6, cols: 8,
+                clues: [
+                    "1-Across: Discrete quantum particle of light (6 letters: P_H_T_O_N)",
+                    "2-Across: Amplified coherent light beam (5 letters: L_S_R)",
+                    "1-Down: Branch of physics studying light (6 letters: O_T_I_C_S)"
+                ],
+                words: [
+                    { id: "1A", word: "PHOTON", row: 1, col: 2, dir: "H" },
+                    { id: "2A", word: "LASER", row: 5, col: 0, dir: "H" },
+                    { id: "1D", word: "OPTICS", row: 0, col: 2, dir: "V" }
+                ]
+            },
+            9: {
+                rows: 7, cols: 7,
+                clues: [
+                    "1-Across: Rectangular array of numbers in linear algebra (6 letters: M_T_I_X)",
+                    "2-Across: Quantity having magnitude and direction (6 letters: V_C_T_R)",
+                    "1-Down: Line touching a curve at a single point (7 letters: T_N_G_N_T)"
+                ],
+                words: [
+                    { id: "1A", word: "MATRIX", row: 0, col: 1, dir: "H" },
+                    { id: "2A", word: "VECTOR", row: 6, col: 0, dir: "H" },
+                    { id: "1D", word: "TANGENT", row: 0, col: 3, dir: "V" }
+                ]
+            },
+            10: {
+                rows: 6, cols: 6,
+                clues: [
+                    "1-Across: College campus grounds and facilities (6 letters: C_M_P_S)",
+                    "2-Across: Student technical chapters and groups (5 letters: C_U_B_S)",
+                    "1-Down: Former graduate students of JCE (6 letters: A_L_M_N_I)"
+                ],
+                words: [
+                    { id: "1A", word: "CAMPUS", row: 0, col: 0, dir: "H" },
+                    { id: "2A", word: "CLUBS", row: 1, col: 0, dir: "H" },
+                    { id: "1D", word: "ALUMNI", row: 0, col: 1, dir: "V" }
+                ]
+            }
+        };
+
+        // Physics lab dataset
+        const physicsDaysData = {
+            1: { title: "Vector Forces & Projectile Lab", targetMin: 60, targetMax: 75, q2Prompt: "Two resistors R₁ = 12 Ω and R₂ = 6 Ω are in Parallel. Calculate Equivalent Resistance R_eq (in Ω):", q2Ans: 4, q3Prompt: "If pendulum length L is multiplied by 4, period T becomes:", q3Opts: ["doubles", "quadruples", "halves"], q3Correct: "doubles" },
+            2: { title: "Kinematics & Velocity Lab", targetMin: 50, targetMax: 65, q2Prompt: "A vehicle accelerates from 0 to 20 m/s in 4 seconds. Acceleration in m/s²:", q2Ans: 5, q3Prompt: "Displacement for uniform circular motion in one full lap:", q3Opts: ["zero", "2 × π × r", "π × r"], q3Correct: "zero" },
+            3: { title: "Newton's Laws & Motion Lab", targetMin: 70, targetMax: 85, q2Prompt: "Force required to accelerate a 10 kg mass at 3 m/s² (in Newtons):", q2Ans: 30, q3Prompt: "Action and reaction forces according to Newton's 3rd Law act on:", q3Opts: ["two different bodies", "same body", "none"], q3Correct: "two different bodies" },
+            4: { title: "Work, Energy & Power Dynamics", targetMin: 45, targetMax: 60, q2Prompt: "Work done lifting 5 kg mass vertically by 2 meters (g = 10 m/s²) in Joules:", q2Ans: 100, q3Prompt: "Kinetic energy quadruples when velocity is:", q3Opts: ["doubled", "quadrupled", "halved"], q3Correct: "doubled" },
+            5: { title: "Electrostatics & Circuit Analysis", targetMin: 55, targetMax: 70, q2Prompt: "Current through a 10 Ω resistor with 20 Volts applied (in Amperes):", q2Ans: 2, q3Prompt: "Capacitors in parallel add their total capacitance:", q3Opts: ["directly (C₁ + C₂)", "reciprocally", "subtractively"], q3Correct: "directly (C₁ + C₂)" },
+            6: { title: "Electromagnetism & Induction", targetMin: 65, targetMax: 80, q2Prompt: "Frequency of a 50 Hz AC electrical supply in cycles per second:", q2Ans: 50, q3Prompt: "Electrical transformer operates on the physical principle of:", q3Opts: ["mutual induction", "self resistance", "electrostatic friction"], q3Correct: "mutual induction" },
+            7: { title: "Optics & Fiber Communications", targetMin: 40, targetMax: 55, q2Prompt: "Refractive index of a medium where speed of light is 2 × 10⁸ m/s (c = 3 × 10⁸ m/s):", q2Ans: 1.5, q3Prompt: "Optical fibers transmit signals using the principle of:", q3Opts: ["total internal reflection", "diffraction", "polarization"], q3Correct: "total internal reflection" },
+            8: { title: "Laser & Quantum Instrumentation", targetMin: 60, targetMax: 75, q2Prompt: "Energy of photon with frequency 5 × 10¹⁴ Hz (h = 6.63 × 10⁻³⁴ J s) in 10⁻¹⁹ Joules:", q2Ans: 3.315, q3Prompt: "LASER stands for Light Amplification by Stimulated Emission of:", q3Opts: ["Radiation", "Relativity", "Reflection"], q3Correct: "Radiation" },
+            9: { title: "Thermodynamics & Heat Transfer", targetMin: 50, targetMax: 65, q2Prompt: "Efficiency of Carnot heat engine operating between 600 K and 300 K (in %):", q2Ans: 50, q3Prompt: "Heat transfer across vacuum without a medium occurs by:", q3Opts: ["radiation", "conduction", "convection"], q3Correct: "radiation" },
+            10: { title: "Sensors & Piezoelectric Dynamics", targetMin: 65, targetMax: 80, q2Prompt: "Output voltage multiplier of piezoelectric sensor when applied pressure is doubled:", q2Ans: 2, q3Prompt: "Thermocouple generates voltage based on temperature differential (Seebeck effect):", q3Opts: ["True", "False"], q3Correct: "True" }
+        };
+
+        // Math dataset
+        const mathDaysData = {
+            1: [
+                { title: "2 × 2 Determinant", prompt: "Evaluate determinant | 5  3 | / | 2  8 | (5 × 8 - 3 × 2)", ans: 34 },
+                { title: "Vector Dot Product", prompt: "Calculate A · B for A = (3, 4) and B = (2, -1)", ans: 2 },
+                { title: "Derivative Evaluation", prompt: "Evaluate d/dx (3x² + 5x) at x = 2", ans: 17 },
+                { title: "Complex Real Part", prompt: "Real part of (4 + 3i) + (2 - 5i)", ans: 6 },
+                { title: "Identity Trace", prompt: "Sum of diagonal elements for 3 × 3 Identity Matrix", ans: 3 }
+            ],
+            2: [
+                { title: "Matrix Addition", prompt: "Trace of 3 × 3 Identity Matrix multiplied by 2", ans: 6 },
+                { title: "Vector Magnitude", prompt: "Magnitude of vector V = (3, 4, 0)", ans: 5 },
+                { title: "Definite Integral", prompt: "Definite Integral of 2x dx from 0 to 4", ans: 16 },
+                { title: "AP 10th Term", prompt: "10th term of AP: 2, 5, 8, 11...", ans: 29 },
+                { title: "Determinant 3 × 3", prompt: "Determinant of 3 × 3 Identity Matrix", ans: 1 }
+            ],
+            3: [
+                { title: "Quadratic Roots Product", prompt: "Product of roots for x² - 7x + 12 = 0", ans: 12 },
+                { title: "Limit Evaluation", prompt: "Limit of (x² - 9)/(x - 3) as x approaches 3", ans: 6 },
+                { title: "Factorial Value", prompt: "Evaluate 5!", ans: 120 },
+                { title: "Permutation P(5,2)", prompt: "Evaluate 5! / (5 - 2)!", ans: 20 },
+                { title: "Trig Value sin(30°)", prompt: "Evaluate 2 × sin(30°)", ans: 1 }
+            ],
+            4: [
+                { title: "Logarithm Base 2", prompt: "Evaluate log base 2 of 32 [log₂(32)]", ans: 5 },
+                { title: "Differential Order", prompt: "Order of d²y/dx² + 3 dy/dx = 0", ans: 2 },
+                { title: "Binomial C(6,2)", prompt: "6! / (2! × 4!)", ans: 15 },
+                { title: "Mean of Data", prompt: "Mean of 10, 20, 30, 40, 50", ans: 30 },
+                { title: "Complex Modulus", prompt: "Modulus of complex number |3 + 4i|", ans: 5 }
+            ],
+            5: [
+                { title: "Probability Coin Flip", prompt: "Probability (%) of getting 2 heads in 2 fair coin flips", ans: 25 },
+                { title: "Eigenvalue Sum", prompt: "Sum of eigenvalues for matrix [[2, 0], [0, 5]]", ans: 7 },
+                { title: "Vector Cross Magnitude", prompt: "Magnitude |(3,0,0) × (0,4,0)|", ans: 12 },
+                { title: "GP Sum 4 terms", prompt: "Sum of geometric progression 1 + 2 + 4 + 8", ans: 15 },
+                { title: "Partial Derivative", prompt: "d/dx (x² y³) at x = 2, y = 1", ans: 4 }
+            ],
+            6: [
+                { title: "Matrix Multiplication", prompt: "Element C₁₁ of [[1, 2]] × [[3], [4]]", ans: 11 },
+                { title: "Newton Raphson Step", prompt: "x₁ = x₀ - f(x₀)/f'(x₀) for x₀=2, f(2)=4, f'(2)=4", ans: 1 },
+                { title: "Cube Die Faces", prompt: "Number of faces on a standard cubic die", ans: 6 },
+                { title: "Radians Factor", prompt: "180 degrees in terms of π factor (180° = π × ?)", ans: 1 },
+                { title: "Laplace L(1)", prompt: "Evaluation of s × L(1)", ans: 1 }
+            ],
+            7: [
+                { title: "Fourier Harmonic", prompt: "Frequency multiplier for 2nd harmonic", ans: 2 },
+                { title: "Matrix Rank 2 × 2", prompt: "Rank of identity matrix [[1,0],[0,1]]", ans: 2 },
+                { title: "Hypotenuse Length", prompt: "Hypotenuse for right triangle with sides 6 and 8", ans: 10 },
+                { title: "Circle Area factor", prompt: "Radius if circle area = 16π (Area = π × r²)", ans: 4 },
+                { title: "Degrees in Circle", prompt: "Total degrees in one full rotation", ans: 360 }
+            ],
+            8: [
+                { title: "Sphere Volume factor", prompt: "Radius if V = 36π (V = 4/3 × π × r³)", ans: 3 },
+                { title: "Binary 1010", prompt: "Decimal value of binary number 1010", ans: 10 },
+                { title: "Hexadecimal A", prompt: "Decimal equivalent of Hexadecimal digit A", ans: 10 },
+                { title: "Matrix Trace 2 × 2", prompt: "Trace of [[4, 1], [3, 6]]", ans: 10 },
+                { title: "Slope of Line", prompt: "Slope m for line y = 5x + 3", ans: 5 }
+            ],
+            9: [
+                { title: "Pythagorean Triplet", prompt: "Find x for triplet 5, 12, x", ans: 13 },
+                { title: "Integral of x", prompt: "Definite integral of x dx from 0 to 6", ans: 18 },
+                { title: "Variance Value", prompt: "Variance of data set [5, 5, 5, 5]", ans: 0 },
+                { title: "Combination C(5,1)", prompt: "Value of C(5, 1)", ans: 5 },
+                { title: "Exponent Value", prompt: "Evaluate 2⁵", ans: 32 }
+            ],
+            10: [
+                { title: "Orientation Days", prompt: "Total days in JCE Freshmen Orientation", ans: 10 },
+                { title: "VTU Semester Total", prompt: "Number of semesters in BE engineering degree", ans: 8 },
+                { title: "Degrees in Triangle", prompt: "Sum of interior angles in a triangle", ans: 180 },
+                { title: "Binary 1111", prompt: "Decimal value of binary 1111", ans: 15 },
+                { title: "Perfect Score", prompt: "Max points achievable in each game activity", ans: 50 }
+            ]
+        };
+
+        // Chemistry dataset
+        const chemDaysData = {
+            1: [
+                { id: 1, prompt: "Primary semiconductor used in microchips?", options: ["Silicon (Si)", "Copper (Cu)", "Iron (Fe)", "Aluminum (Al)"], correct: "Silicon (Si)" },
+                { id: 2, prompt: "Metal with highest electrical conductivity at room temp?", options: ["Silver (Ag)", "Gold (Au)", "Copper (Cu)", "Platinum (Pt)"], correct: "Silver (Ag)" },
+                { id: 3, prompt: "Lightweight structural metal used in aerospace?", options: ["Titanium (Ti)", "Sodium (Na)", "Lead (Pb)", "Mercury (Hg)"], correct: "Titanium (Ti)" }
+            ],
+            2: [
+                { id: 1, prompt: "Reagent used to measure water hardness?", options: ["EDTA", "NaCl", "HCl", "Ethanol"], correct: "EDTA" },
+                { id: 2, prompt: "Primary ions causing hardness in water:", options: ["Calcium & Magnesium", "Sodium & Potassium", "Iron & Lead", "Zinc & Copper"], correct: "Calcium & Magnesium" },
+                { id: 3, prompt: "pH value of pure neutral water at 25°C:", options: ["7", "0", "14", "4"], correct: "7" }
+            ],
+            3: [
+                { id: 1, prompt: "Alkali metal used in rechargeable EV batteries?", options: ["Lithium (Li)", "Zinc (Zn)", "Nickel (Ni)", "Cadmium (Cd)"], correct: "Lithium (Li)" },
+                { id: 2, prompt: "Anode material used in lithium-ion battery cells:", options: ["Graphite Carbon", "Copper", "Sulfur", "Silicon"], correct: "Graphite Carbon" },
+                { id: 3, prompt: "Electrolyte component in lead-acid batteries:", options: ["Sulfuric Acid", "Nitric Acid", "Water", "Ammonia"], correct: "Sulfuric Acid" }
+            ],
+            4: [
+                { id: 1, prompt: "Galvanization applies a protective coat of which metal?", options: ["Zinc (Zn)", "Tin (Sn)", "Copper (Cu)", "Lead (Pb)"], correct: "Zinc (Zn)" },
+                { id: 2, prompt: "Sacrificial metal anode attached to steel ship hulls:", options: ["Magnesium", "Silver", "Gold", "Platinum"], correct: "Magnesium" },
+                { id: 3, prompt: "Chemical formula for rust formed on iron:", options: ["Fe₂O₃·nH₂O", "FeCl₃", "FeSO₄", "FeO"], correct: "Fe₂O₃·nH₂O" }
+            ],
+            5: [
+                { id: 1, prompt: "High-strength polymer used in bulletproof vests?", options: ["Kevlar", "Teflon", "PVC", "Nylon"], correct: "Kevlar" },
+                { id: 2, prompt: "Synthetic polymer used in non-stick cookware:", options: ["PTFE / Teflon", "Bakelite", "Polystyrene", "Polyester"], correct: "PTFE / Teflon" },
+                { id: 3, prompt: "Monomer used to produce Polyethylene plastic:", options: ["Ethylene", "Styrene", "Vinyl Chloride", "Propylene"], correct: "Ethylene" }
+            ],
+            6: [
+                { id: 1, prompt: "Single atomic layer carbon allotrope with high conductivity:", options: ["Graphene", "Diamond", "Coal", "Fullerene"], correct: "Graphene" },
+                { id: 2, prompt: "Nanomaterial with ultra-high tensile strength:", options: ["Carbon Nanotubes", "Silica Sand", "Alumina", "Clay"], correct: "Carbon Nanotubes" },
+                { id: 3, prompt: "Hardest naturally occurring carbon allotrope:", options: ["Diamond", "Graphite", "Graphene", "Charcoal"], correct: "Diamond" }
+            ],
+            7: [
+                { id: 1, prompt: "Corrosion-resistant metal alloy in jet engine turbines?", options: ["Titanium Alloy", "Brass", "Bronze", "Solder"], correct: "Titanium Alloy" },
+                { id: 2, prompt: "Main element added to steel to make Stainless Steel:", options: ["Chromium", "Copper", "Gold", "Lead"], correct: "Chromium" },
+                { id: 3, prompt: "Alloy consisting of Copper and Zinc:", options: ["Brass", "Bronze", "Steel", "Electrum"], correct: "Brass" }
+            ],
+            8: [
+                { id: 1, prompt: "Fuel used in zero-emission fuel cell vehicles:", options: ["Hydrogen (H₂)", "Methane", "Diesel", "Propane"], correct: "Hydrogen (H₂)" },
+                { id: 2, prompt: "Sole chemical byproduct of pure hydrogen fuel cells:", options: ["Water (H₂O)", "Carbon Dioxide", "Sulfur Dioxide", "Ash"], correct: "Water (H₂O)" },
+                { id: 3, prompt: "Gas constituting approximately 78% of Earth's atmosphere:", options: ["Nitrogen (N₂)", "Oxygen (O₂)", "Argon", "CO₂"], correct: "Nitrogen (N₂)" }
+            ],
+            9: [
+                { id: 1, prompt: "Conductive organic polymer used in flexible displays:", options: ["Polyaniline", "Polystyrene", "Polyethylene", "PVC"], correct: "Polyaniline" },
+                { id: 2, prompt: "Chemical doping process in conductive polymers introduces:", options: ["Charge carriers", "Inert gas", "Water", "Dust"], correct: "Charge carriers" },
+                { id: 3, prompt: "Photovoltaic cells directly convert sunlight into:", options: ["Electrical energy", "Heat", "Sound", "Biomass"], correct: "Electrical energy" }
+            ],
+            10: [
+                { id: 1, prompt: "Core principle of Green Chemistry in engineering:", options: ["Waste Prevention & Atom Economy", "Maximum Solvent Use", "High Toxicity", "Ocean Disposal"], correct: "Waste Prevention & Atom Economy" },
+                { id: 2, prompt: "Biodegradable natural polymer substitute for plastic:", options: ["PLA (Polylactic Acid)", "Polystyrene", "Synthetic Rubber", "Bakelite"], correct: "PLA (Polylactic Acid)" },
+                { id: 3, prompt: "Process of turning organic waste into nutrient fertilizer:", options: ["Composting", "Incineration", "Pyrolysis", "Smelting"], correct: "Composting" }
+            ]
+        };
+
+        // Emoji Puzzles dataset
+        const emojiDaysData = {
+            1: [
+                { id: 1, emojis: '💻 🐛 🔨', clue: 'Removing errors from code', answer: 'DEBUGGING' },
+                { id: 2, emojis: '⚡ 🔋 💡', clue: 'Flow of electric charge and power', answer: 'ELECTRICITY' }
+            ],
+            2: [
+                { id: 3, emojis: '⚙️ 🧱 🏗️', clue: 'Branch of engineering building structures', answer: 'CIVIL' },
+                { id: 4, emojis: '🤖 🧠 💭', clue: 'Simulated intelligence in machines (2 words)', answer: 'ARTIFICIAL INTELLIGENCE' }
+            ],
+            3: [
+                { id: 5, emojis: '🏫 📍 🏛️', clue: 'Our college located in Belagavi (Abbreviation)', answer: 'JCE' },
+                { id: 6, emojis: '⚡ 📡 🌐', clue: 'Transferring signal and data over distance', answer: 'COMMUNICATION' }
+            ],
+            4: [
+                { id: 7, emojis: '💻 🔒 🛡️', clue: 'Protection of computer systems from threats', answer: 'CYBERSECURITY' },
+                { id: 8, emojis: '🏭 🤖 🦾', clue: 'Replacing manual labor with automated robotics', answer: 'AUTOMATION' }
+            ],
+            5: [
+                { id: 9, emojis: '🔋 ☀️ 💨', clue: 'Clean power generated from natural sources (2 words)', answer: 'RENEWABLE ENERGY' },
+                { id: 10, emojis: '📐 📏 ✏️', clue: 'Creating technical engineering drawings', answer: 'DRAFTING' }
+            ],
+            6: [
+                { id: 11, emojis: '🔬 🧪 🧫', clue: 'Scientific study of matter and reactions', answer: 'CHEMISTRY' },
+                { id: 12, emojis: '⚡ 🧲 🌀', clue: 'Field produced by moving electric charges', answer: 'ELECTROMAGNETISM' }
+            ],
+            7: [
+                { id: 13, emojis: '🏎️ ⚙️ ⛽', clue: 'Branch of engineering with motors and machines', answer: 'MECHANICAL' },
+                { id: 14, emojis: '📊 📈 📉', clue: 'Analysis and visualization of numbers', answer: 'STATISTICS' }
+            ],
+            8: [
+                { id: 15, emojis: '🌐 💻 🔌', clue: 'Global interconnected computer network', answer: 'INTERNET' },
+                { id: 16, emojis: '☁️ 💾 🚀', clue: 'On-demand availability of computer system resources', answer: 'CLOUD COMPUTING' }
+            ],
+            9: [
+                { id: 17, emojis: '🛰️ 📡 🌌', clue: 'Technology orbiting in space for global signals', answer: 'SATELLITE' },
+                { id: 18, emojis: '📦 🚚 🔄', clue: 'Management of the flow of things between origins', answer: 'LOGISTICS' }
+            ],
+            10: [
+                { id: 19, emojis: '🎓 🏆 📜', clue: 'First year college student orientation milestone', answer: 'GRADUATION' },
+                { id: 20, emojis: '🤝 💡 🌟', clue: 'Working together to innovate new technology', answer: 'COLLABORATION' }
+            ]
+        };
+
+        let sessions = [];
+        let leaderboard = [];
+        let feedbackQuestions = [];
+        let activeStudent = { name: '', branch: '', usn: '', scores: {}, feedbackSubmitted: false };
+        let activeScheduleFilter = 'all';
+        let currentActivityDay = 1;
+        let manualGlowIndex = null;
+        let adminSettings = { feedbackEnabled: true, certificateEnabled: true };
+        
+        let isAdminAuthorized = false;
+
+        let secretBuffer = '';
+        window.addEventListener('keydown', (e) => {
+            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
+
+            secretBuffer += e.key;
+            if (secretBuffer.length > 4) {
+                secretBuffer = secretBuffer.slice(-4);
+            }
+
+            if (secretBuffer === '9999') {
+                secretBuffer = '';
+                openAdminModal();
+                showNotification('🔑 Admin Portal access triggered.', 'info');
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initApp();
+        });
+
+        function showNotification(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            const bgColor = type === 'success' ? 'bg-emerald-600' : type === 'error' ? 'bg-red-600' : 'bg-jce-navy';
+            
+            toast.className = `${bgColor} text-white text-xs font-semibold px-4 py-3 rounded-2xl shadow-xl flex items-center justify-between gap-3 pointer-events-auto transition-all duration-300 transform translate-y-2 opacity-0`;
+            toast.innerHTML = `
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()" class="text-white/80 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            `;
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+            
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.classList.add('opacity-0');
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 4000);
+        }
+
+        function initApp() {
+            // Realtime Sync from Firebase Database for Sessions
+            sessionsRef.on('value', (snapshot) => {
+                const data = snapshot.val();
+                if (data && Array.isArray(data) && data.length > 0) {
+                    sessions = data;
+                } else {
+                    sessions = [...defaultSchedule];
+                    sessionsRef.set(defaultSchedule);
+                }
+                renderSchedule();
+                renderVideoGallery();
+            });
+
+            // Realtime Sync from Firebase Database for Leaderboard
+            leaderboardRef.on('value', (snapshot) => {
+                const data = snapshot.val();
+                leaderboard = [];
+                if (data) {
+                    Object.values(data).forEach(item => {
+                        leaderboard.push(item);
+                    });
+                    leaderboard.sort((a, b) => b.totalScore - a.totalScore);
+                }
+                renderLeaderboard();
+            });
+
+            // Load settings & questions from LocalStorage
+            const savedSettings = localStorage.getItem('jce_admin_settings');
+            if (savedSettings) {
+                try { adminSettings = JSON.parse(savedSettings); } catch(e) {}
+            }
+
+            const savedQuestions = localStorage.getItem('jce_feedback_questions');
+            if (savedQuestions) {
+                try { feedbackQuestions = JSON.parse(savedQuestions); } catch(e) { feedbackQuestions = [...defaultFeedbackQuestions]; }
+            } else { feedbackQuestions = [...defaultFeedbackQuestions]; }
+
+            // Load student profile
+            const savedProfile = localStorage.getItem('jce_student_profile');
+            if (savedProfile) {
+                try {
+                    activeStudent = JSON.parse(savedProfile);
+                    document.getElementById('student-name').value = activeStudent.name || '';
+                    document.getElementById('student-branch').value = activeStudent.branch || '';
+                    document.getElementById('student-usn').value = activeStudent.usn || '';
+                } catch(e) {}
+            }
+
+            renderDaySelectorButtons();
+            selectActivityDay(1);
+            renderFeedbackSurvey();
+            renderCertificate();
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active-tab'));
+            
+            document.getElementById(`section-${tabId}`).classList.remove('hidden');
+            document.getElementById(`tab-${tabId}`).classList.add('active-tab');
+        }
+
+        function renderSchedule() {
+            const container = document.getElementById('schedule-grid-container');
+            container.innerHTML = '';
+
+            let filtered = sessions;
+            if (activeScheduleFilter !== 'all') {
+                filtered = sessions.filter(s => s.week === activeScheduleFilter);
+            }
+
+            const searchVal = document.getElementById('schedule-search')?.value.toLowerCase() || '';
+            if (searchVal) {
+                filtered = filtered.filter(s => 
+                    s.topic.toLowerCase().includes(searchVal) || 
+                    s.speaker.toLowerCase().includes(searchVal) ||
+                    s.dateStr.toLowerCase().includes(searchVal)
+                );
+            }
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 bg-white rounded-3xl border border-slate-200">
+                        <i class="fa-solid fa-calendar-xmark text-4xl text-slate-300 mb-2"></i>
+                        <p class="text-sm font-bold text-slate-600">No sessions match your search filter.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach((session, index) => {
+                const isTodayGlow = session.isGlowActive === true || (manualGlowIndex === index);
+
+                const card = document.createElement('div');
+                card.className = isTodayGlow 
+                    ? 'glow-today-card rounded-3xl p-6 shadow-xl transition flex flex-col justify-between relative overflow-hidden group'
+                    : 'bg-white border border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between relative overflow-hidden group';
+
+                const todayBadge = isTodayGlow ? `
+                    <div class="mb-3 inline-flex items-center gap-1.5 bg-red-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-md animate-pulse">
+                        🔴 TODAY'S SESSION • LIVE NOW
+                    </div>
+                ` : '';
+
+                const videoBtn = session.videoLink ? `
+                    <button onclick="openVideoModal('${session.topic.replace(/'/g, "\\'")}', '${session.videoLink}')" class="px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-600 rounded-xl text-xs font-bold transition flex items-center gap-1.5 border border-red-200">
+                        <i class="fa-solid fa-circle-play text-red-500"></i> Watch Recording
+                    </button>
+                ` : '';
+
+                const courseBtn = session.courseUrl ? `
+                    <a href="${session.courseUrl}" target="_blank" class="px-3.5 py-1.5 bg-teal-50 hover:bg-teal-100 text-teal-700 rounded-xl text-xs font-bold transition flex items-center gap-1.5 border border-teal-200 shadow-sm">
+                        <i class="fa-solid fa-graduation-cap text-teal-600"></i> Course Material / Virtual Lab
+                    </a>
+                ` : '';
+
+                const photoBadge = session.photoUrl 
+                    ? `<img src="${session.photoUrl}" alt="${session.speaker}" class="w-12 h-14 rounded-xl object-cover object-center border-2 border-jce-blue/30 shadow-md flex-shrink-0 bg-slate-100" style="image-rendering: -webkit-optimize-contrast;">`
+                    : `<div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-sm"><i class="fa-solid fa-user-tie text-base text-jce-blue"></i></div>`;
+
+                let meetButtonsHtml = `
+                    <a href="${session.meetLink}" target="_blank" class="px-4 py-2 bg-jce-blue hover:bg-blue-800 text-white font-bold rounded-xl text-xs transition flex items-center gap-2 shadow-sm pulse-subtle">
+                        <i class="fa-solid fa-video"></i> Join Live Google Meet
+                    </a>
+                `;
+
+                if (session.secondMeetLink) {
+                    meetButtonsHtml += `
+                        <a href="${session.secondMeetLink}" target="_blank" class="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-xs transition flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-video"></i> Secondary Google Meet Link
+                        </a>
+                    `;
+                }
+
+                const meetInstructionBox = session.meetInstructions ? `
+                    <div class="w-full mt-2 p-2.5 bg-amber-50 border border-amber-200 rounded-xl text-[11px] font-semibold text-amber-900 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info text-amber-600 text-xs flex-shrink-0"></i>
+                        <span>${session.meetInstructions}</span>
+                    </div>
+                ` : '';
+
+                card.innerHTML = `
+                    <div class="space-y-4">
+                        ${todayBadge}
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                            <span class="bg-jce-light text-jce-blue text-xs font-bold px-3 py-1 rounded-full uppercase border border-blue-100">
+                                Day ${session.dayNum} &bull; ${session.dayOfWeek}
+                            </span>
+                            <span class="text-xs font-semibold text-slate-500 flex items-center gap-1">
+                                <i class="fa-regular fa-clock text-jce-blue"></i> ${session.timeSlot}
+                            </span>
+                        </div>
+
+                        <div>
+                            <span class="text-[11px] font-bold text-teal-600 uppercase tracking-wider">${session.dateStr}</span>
+                            <h3 class="text-lg font-bold text-slate-900 leading-snug mt-1 group-hover:text-jce-blue transition">
+                                ${session.topic}
+                            </h3>
+                            <p class="text-xs text-slate-500 mt-2 line-clamp-2">${session.description}</p>
+                        </div>
+
+                        <div class="flex items-center gap-3.5 pt-2">
+                            ${photoBadge}
+                            <div>
+                                <div class="text-xs font-bold text-slate-800 leading-tight">${session.speaker}</div>
+                                <div class="text-[10px] text-slate-400 mt-0.5 font-medium">Resource Facilitator</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex flex-col gap-2">
+                        <div class="flex flex-wrap items-center gap-2">
+                            ${meetButtonsHtml}
+                            ${courseBtn}
+                            ${videoBtn}
+                        </div>
+                        ${meetInstructionBox}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterSchedule(filterKey) {
+            activeScheduleFilter = filterKey;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = 'filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-slate-200 text-slate-700 hover:bg-slate-300';
+            });
+            document.getElementById(`filter-${filterKey}`).className = 'filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-jce-blue text-white shadow-sm';
+            renderSchedule();
+        }
+
+        function searchSchedule() {
+            renderSchedule();
+        }
+
+        function saveStudentProfile() {
+            activeStudent.name = document.getElementById('student-name').value.trim();
+            activeStudent.branch = document.getElementById('student-branch').value;
+            activeStudent.usn = document.getElementById('student-usn').value.trim();
+            localStorage.setItem('jce_student_profile', JSON.stringify(activeStudent));
+            renderCertificate();
+        }
+
+        function validateStudentProfile() {
+            saveStudentProfile();
+            if (!activeStudent.name || !activeStudent.branch) {
+                showNotification('Please enter your Name and Branch at the top of Activity Hub before submitting!', 'error');
+                window.scrollTo({ top: 120, behavior: 'smooth' });
+                return false;
+            }
+            return true;
+        }
+
+        function renderDaySelectorButtons() {
+            const container = document.getElementById('day-selector-buttons');
+            if (!container) return;
+            container.innerHTML = '';
+
+            for (let i = 1; i <= 10; i++) {
+                const btn = document.createElement('button');
+                const isActive = i === currentActivityDay;
+                btn.className = `px-3.5 py-1.5 rounded-xl font-bold text-xs transition border ${
+                    isActive 
+                    ? 'bg-jce-blue text-white border-jce-blue shadow-sm' 
+                    : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
+                }`;
+                btn.textContent = `Day ${i}`;
+                btn.onclick = () => selectActivityDay(i);
+                container.appendChild(btn);
+            }
+        }
+
+        function selectActivityDay(dayNum) {
+            currentActivityDay = dayNum;
+            renderDaySelectorButtons();
+
+            const cwBadge = document.getElementById('cw-day-badge');
+            if (cwBadge) cwBadge.textContent = `Day ${dayNum} Crossword Board`;
+
+            const phyBadge = document.getElementById('physics-day-badge');
+            if (phyBadge) phyBadge.textContent = `Day ${dayNum} Physics Lab`;
+
+            const mathBadge = document.getElementById('math-day-badge');
+            if (mathBadge) mathBadge.textContent = `Day ${dayNum} Math Quest`;
+
+            const chemBadge = document.getElementById('chem-day-badge');
+            if (chemBadge) chemBadge.textContent = `Day ${dayNum} Chemistry Lab`;
+
+            const emojiBadge = document.getElementById('emoji-day-badge');
+            if (emojiBadge) emojiBadge.textContent = `Day ${dayNum} Activity`;
+
+            renderCrosswordBoard();
+            renderPhysicsActivity();
+            renderMathActivity();
+            renderChemistryQuiz();
+            renderEmojiPuzzles();
+        }
+
+        function switchGame(gameKey) {
+            document.querySelectorAll('.game-container').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.game-tab-btn').forEach(btn => {
+                btn.className = 'game-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs transition flex items-center gap-2 bg-slate-100 text-slate-700 hover:bg-slate-200';
+            });
+
+            document.getElementById(`game-${gameKey}`).classList.remove('hidden');
+            document.getElementById(`game-tab-${gameKey}`).className = 'game-tab-btn px-4 py-2.5 rounded-xl font-bold text-xs transition flex items-center gap-2 bg-jce-blue text-white shadow-sm';
+
+            if (gameKey === 'physics') {
+                setTimeout(initPhysicsSimulation, 100);
+            }
+        }
+
+        function recordScore(activityName, score, maxScore) {
+            if (!activeStudent.scores) activeStudent.scores = {};
+            activeStudent.scores[activityName] = score;
+
+            const totalScore = Object.values(activeStudent.scores).reduce((a, b) => a + b, 0);
+            const activitiesCount = Object.keys(activeStudent.scores).length;
+
+            const studentKey = (activeStudent.name + '_' + activeStudent.branch)
+                .replace(/[^a-zA-Z0-9]/g, '_')
+                .toLowerCase();
+
+            const entry = {
+                name: activeStudent.name,
+                branch: activeStudent.branch,
+                usn: activeStudent.usn || 'N/A',
+                activitiesCount: activitiesCount,
+                totalScore: totalScore,
+                lastActivity: activityName,
+                timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+            };
+
+            // Save live score to Firebase Realtime Database
+            db.ref('leaderboard/' + studentKey).set(entry)
+                .then(() => {
+                    showNotification(`Score synced to new cloud database! (+${score} pts)`, 'success');
+                })
+                .catch((err) => {
+                    console.error("Firebase sync error:", err);
+                });
+        }
+
+        function renderCrosswordBoard() {
+            const container = document.getElementById('crossword-board-wrapper');
+            if (!container) return;
+
+            const data = masterCrosswordGrids[currentActivityDay] || masterCrosswordGrids[1];
+            
+            const cellMap = {};
+            data.words.forEach(w => {
+                for (let i = 0; i < w.word.length; i++) {
+                    const r = w.dir === "H" ? w.row : w.row + i;
+                    const c = w.dir === "H" ? w.col + i : w.col;
+                    const key = `${r}-${c}`;
+                    if (!cellMap[key]) {
+                        cellMap[key] = { char: w.word[i], labels: [] };
+                    }
+                    if (i === 0) {
+                        cellMap[key].labels.push(w.id);
+                    }
+                }
+            });
+
+            let gridHtml = `<div class="grid gap-1 min-w-[280px]" style="grid-template-columns: repeat(${data.cols}, minmax(0, 1fr));">`;
+
+            for (let r = 0; r < data.rows; r++) {
+                for (let c = 0; c < data.cols; c++) {
+                    const key = `${r}-${c}`;
+                    if (cellMap[key]) {
+                        const cell = cellMap[key];
+                        const badge = cell.labels.length > 0 ? `<span class="absolute top-0.5 left-0.5 text-[9px] text-amber-300 font-bold leading-none pointer-events-none">${cell.labels.join('/')}</span>` : '';
+                        gridHtml += `
+                            <div class="relative w-9 h-9">
+                                ${badge}
+                                <input type="text" id="cw-cell-${r}-${c}" data-solution="${cell.char}" maxlength="1" 
+                                       class="w-9 h-9 text-center bg-slate-700 text-white font-bold rounded text-sm uppercase focus:bg-amber-400 focus:text-slate-900 focus:outline-none transition">
+                            </div>`;
+                    } else {
+                        gridHtml += `<div class="w-9 h-9 bg-slate-950 rounded opacity-60"></div>`;
+                    }
+                }
+            }
+            gridHtml += `</div>`;
+
+            container.innerHTML = `
+                <div class="lg:col-span-1 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs space-y-3">
+                    <h4 class="font-bold text-slate-900 text-sm border-b border-slate-200 pb-2">Day ${currentActivityDay} Clues</h4>
+                    ${data.clues.map(c => `<div class="text-slate-700 font-medium">• ${c}</div>`).join('')}
+                </div>
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="bg-slate-900 p-6 rounded-2xl text-white overflow-x-auto flex flex-col items-center gap-3">
+                        <span class="text-xs text-amber-400 font-bold">Interactive Day ${currentActivityDay} Crossword Grid</span>
+                        ${gridHtml}
+                    </div>
+                    <p class="text-xs text-slate-500">Fill in the missing letter entries corresponding to the Across and Down clues for Day ${currentActivityDay}. Intersecting letters are shared!</p>
+                </div>
+            `;
+        }
+
+        function submitCrosswordGame() {
+            if (!validateStudentProfile()) return;
+
+            const data = masterCrosswordGrids[currentActivityDay] || masterCrosswordGrids[1];
+            let totalCells = 0;
+            let correctCells = 0;
+
+            const processedCells = new Set();
+
+            data.words.forEach(w => {
+                for (let i = 0; i < w.word.length; i++) {
+                    const r = w.dir === "H" ? w.row : w.row + i;
+                    const c = w.dir === "H" ? w.col + i : w.col;
+                    const key = `${r}-${c}`;
+
+                    if (!processedCells.has(key)) {
+                        processedCells.add(key);
+                        const inputElem = document.getElementById(`cw-cell-${r}-${c}`);
+                        if (inputElem) {
+                            totalCells++;
+                            const userVal = (inputElem.value || '').toUpperCase().trim();
+                            if (userVal === inputElem.getAttribute('data-solution')) {
+                                correctCells++;
+                            }
+                        }
+                    }
+                }
+            });
+
+            const score = totalCells > 0 ? Math.round((correctCells / totalCells) * 50) : 0;
+            recordScore(`Crossword Day ${currentActivityDay}`, score, 50);
+
+            if (typeof confetti === 'function' && score > 0) {
+                confetti({ particleCount: 70, spread: 50 });
+            }
+        }
+
+        function renderPhysicsActivity() {
+            const container = document.getElementById('physics-content-container');
+            if (!container) return;
+
+            const pData = physicsDaysData[currentActivityDay] || physicsDaysData[1];
+            
+            const titleElem = document.getElementById('physics-day-title');
+            if (titleElem) titleElem.textContent = `Day ${currentActivityDay}: ${pData.title}`;
+
+            container.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+                    <div class="lg:col-span-2 bg-slate-900 rounded-2xl p-4 shadow-inner relative flex flex-col items-center">
+                        <canvas id="physics-canvas" class="w-full h-64 bg-slate-950 rounded-xl border border-slate-800 cursor-crosshair"></canvas>
+                        <div class="mt-3 flex items-center justify-between w-full text-xs text-slate-400">
+                            <span>Gravity (g = 9.8 m/s²)</span>
+                            <span id="physics-target-text" class="text-emerald-400 font-bold">Target Range: ${pData.targetMin}m - ${pData.targetMax}m</span>
+                            <span id="physics-score-indicator" class="text-amber-400 font-bold">Status: Ready</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4 text-xs">
+                        <h4 class="font-bold text-slate-900 text-sm border-b border-slate-200 pb-2">Trial 1: Launch Dynamics</h4>
+
+                        <div>
+                            <label class="flex justify-between font-semibold text-slate-700 mb-1">
+                                <span>Launch Angle (θ):</span>
+                                <span id="angle-val" class="text-jce-blue font-bold">45°</span>
+                            </label>
+                            <input type="range" id="slider-angle" min="15" max="85" value="45" oninput="updatePhysicsSimulation()" class="w-full accent-jce-blue">
+                        </div>
+
+                        <div>
+                            <label class="flex justify-between font-semibold text-slate-700 mb-1">
+                                <span>Initial Velocity (v₀):</span>
+                                <span id="velocity-val" class="text-jce-blue font-bold">25 m/s</span>
+                            </label>
+                            <input type="range" id="slider-velocity" min="10" max="40" value="25" oninput="updatePhysicsSimulation()" class="w-full accent-jce-blue">
+                        </div>
+
+                        <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1 text-slate-600">
+                            <p><strong>Estimated Range (R):</strong></p>
+                            <p class="text-base font-bold text-slate-900" id="calculated-range">63.77 m</p>
+                            <p class="text-[11px] text-slate-500">Formula: R = (v₀² × sin(2θ)) / g</p>
+                        </div>
+
+                        <button onclick="launchPhysicsPayload()" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow transition text-xs flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-rocket"></i> Launch Payload!
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 text-xs">
+                        <h5 class="font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-bolt text-amber-500"></i> Trial 2: Calculation Lab
+                        </h5>
+                        <p class="text-slate-600">${pData.q2Prompt}</p>
+                        <input type="number" id="physics-q2" placeholder="Enter numeric value" class="w-full px-3 py-1.5 border rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none bg-white">
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 text-xs">
+                        <h5 class="font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-stopwatch text-teal-500"></i> Trial 3: Concept Analysis
+                        </h5>
+                        <p class="text-slate-600">${pData.q3Prompt}</p>
+                        <select id="physics-q3" class="w-full px-3 py-1.5 border rounded-xl text-xs bg-white focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                            <option value="">Select option...</option>
+                            ${pData.q3Opts.map(o => `<option value="${o}">${o}</option>`).join('')}
+                        </select>
+                    </div>
+                </div>
+            `;
+
+            setTimeout(initPhysicsSimulation, 50);
+        }
+
+        let physicsCanvas, ctx;
+        let physAngle = 45;
+        let physVelocity = 25;
+        let payloadLanded = false;
+
+        function initPhysicsSimulation() {
+            physicsCanvas = document.getElementById('physics-canvas');
+            if (!physicsCanvas) return;
+            ctx = physicsCanvas.getContext('2d');
+            updatePhysicsSimulation();
+        }
+
+        function updatePhysicsSimulation() {
+            const angleEl = document.getElementById('slider-angle');
+            const velEl = document.getElementById('slider-velocity');
+            if (!angleEl || !velEl) return;
+
+            physAngle = parseInt(angleEl.value);
+            physVelocity = parseInt(velEl.value);
+
+            document.getElementById('angle-val').textContent = `${physAngle}°`;
+            document.getElementById('velocity-val').textContent = `${physVelocity} m/s`;
+
+            const rad = (physAngle * Math.PI) / 180;
+            const range = (Math.pow(physVelocity, 2) * Math.sin(2 * rad)) / 9.8;
+            document.getElementById('calculated-range').textContent = `${range.toFixed(2)} m`;
+
+            drawPhysicsCanvas(range);
+        }
+
+        function drawPhysicsCanvas(calculatedRange = 63.77) {
+            if (!physicsCanvas || !ctx) return;
+            physicsCanvas.width = physicsCanvas.parentElement.clientWidth || 500;
+            physicsCanvas.height = 240;
+
+            const w = physicsCanvas.width;
+            const h = physicsCanvas.height;
+            const pData = physicsDaysData[currentActivityDay] || physicsDaysData[1];
+
+            ctx.clearRect(0, 0, w, h);
+
+            ctx.strokeStyle = '#334155';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(0, h - 30);
+            ctx.lineTo(w, h - 30);
+            ctx.stroke();
+
+            ctx.fillStyle = '#00A896';
+            ctx.beginPath();
+            ctx.arc(30, h - 30, 15, 0, Math.PI * 2);
+            ctx.fill();
+
+            const targetMinX = 30 + (pData.targetMin * (w - 60) / 100);
+            const targetWidth = (pData.targetMax - pData.targetMin) * (w - 60) / 100;
+            ctx.fillStyle = 'rgba(16, 185, 129, 0.3)';
+            ctx.strokeStyle = '#10B981';
+            ctx.lineWidth = 2;
+            ctx.fillRect(targetMinX, h - 45, targetWidth, 15);
+            ctx.strokeRect(targetMinX, h - 45, targetWidth, 15);
+
+            ctx.fillStyle = '#10B981';
+            ctx.font = 'bold 10px Inter';
+            ctx.fillText(`TARGET (${pData.targetMin}-${pData.targetMax}m)`, targetMinX, h - 52);
+
+            const rad = (physAngle * Math.PI) / 180;
+            const scaleX = (w - 60) / 100;
+            const scaleY = (h - 60) / 40;
+
+            ctx.strokeStyle = 'rgba(243, 156, 18, 0.8)';
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(30, h - 30);
+
+            for (let t = 0; t <= 10; t += 0.1) {
+                const x = physVelocity * Math.cos(rad) * t;
+                const y = (physVelocity * Math.sin(rad) * t) - (0.5 * 9.8 * t * t);
+                if (y < -5) break;
+
+                const canvasX = 30 + (x * scaleX);
+                const canvasY = (h - 30) - (y * scaleY);
+                ctx.lineTo(canvasX, canvasY);
+            }
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+
+        function launchPhysicsPayload() {
+            const rad = (physAngle * Math.PI) / 180;
+            const range = (Math.pow(physVelocity, 2) * Math.sin(2 * rad)) / 9.8;
+            const pData = physicsDaysData[currentActivityDay] || physicsDaysData[1];
+
+            const statusEl = document.getElementById('physics-score-indicator');
+
+            if (range >= pData.targetMin && range <= pData.targetMax) {
+                statusEl.textContent = `🎯 HIT! Landed at ${range.toFixed(1)}m`;
+                statusEl.className = 'text-emerald-400 font-bold';
+                payloadLanded = true;
+                if (typeof confetti === 'function') confetti({ particleCount: 50 });
+            } else {
+                statusEl.textContent = `💥 MISSED (${range.toFixed(1)}m). Target: ${pData.targetMin}-${pData.targetMax}m!`;
+                statusEl.className = 'text-red-400 font-bold';
+            }
+        }
+
+        function submitPhysicsGame() {
+            if (!validateStudentProfile()) return;
+
+            const pData = physicsDaysData[currentActivityDay] || physicsDaysData[1];
+            let score = 0;
+
+            if (payloadLanded) score += 20;
+
+            const q2Val = parseFloat(document.getElementById('physics-q2')?.value || 0);
+            if (Math.abs(q2Val - pData.q2Ans) < 0.1) score += 15;
+
+            const q3Val = document.getElementById('physics-q3')?.value || '';
+            if (q3Val === pData.q3Correct) score += 15;
+
+            recordScore(`Physics Day ${currentActivityDay}`, score, 50);
+        }
+
+        function renderMathActivity() {
+            const container = document.getElementById('math-questions-container');
+            if (!container) return;
+
+            const mData = mathDaysData[currentActivityDay] || mathDaysData[1];
+            container.innerHTML = '';
+
+            mData.forEach((q, idx) => {
+                const div = document.createElement('div');
+                div.className = 'bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3';
+                div.innerHTML = `
+                    <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <span class="w-6 h-6 bg-amber-500 text-white rounded-full inline-flex items-center justify-center text-xs">${idx + 1}</span>
+                        ${q.title}
+                    </h4>
+                    <p class="text-xs text-slate-600">${q.prompt}</p>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Your Calculated Answer:</label>
+                        <input type="number" step="any" id="math-ans-${idx}" placeholder="Enter numerical value" class="w-full px-3.5 py-2 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-amber-500 focus:outline-none bg-white">
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function submitMathGame() {
+            if (!validateStudentProfile()) return;
+
+            const mData = mathDaysData[currentActivityDay] || mathDaysData[1];
+            let score = 0;
+
+            mData.forEach((q, idx) => {
+                const userAns = parseFloat(document.getElementById(`math-ans-${idx}`)?.value || 0);
+                if (Math.abs(userAns - q.ans) < 0.01) {
+                    score += Math.round(50 / mData.length);
+                }
+            });
+
+            recordScore(`Math Day ${currentActivityDay}`, score, 50);
+
+            if (typeof confetti === 'function' && score > 0) confetti({ particleCount: 60 });
+        }
+
+        function renderChemistryQuiz() {
+            const container = document.getElementById('chem-quiz-container');
+            if (!container) return;
+
+            const cData = chemDaysData[currentActivityDay] || chemDaysData[1];
+            container.innerHTML = '';
+
+            cData.forEach(q => {
+                const div = document.createElement('div');
+                div.className = 'bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3';
+                div.innerHTML = `
+                    <h4 class="font-bold text-slate-800 text-xs">${q.id}. ${q.prompt}</h4>
+                    <div class="space-y-1.5">
+                        ${q.options.map((opt) => `
+                            <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-slate-200 text-xs cursor-pointer hover:bg-teal-50 transition">
+                                <input type="radio" name="chem-q-${q.id}" value="${opt}" class="accent-teal-600">
+                                <span class="text-slate-700">${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function submitChemistryGame() {
+            if (!validateStudentProfile()) return;
+
+            const cData = chemDaysData[currentActivityDay] || chemDaysData[1];
+            let correctCount = 0;
+
+            cData.forEach(q => {
+                const selected = document.querySelector(`input[name="chem-q-${q.id}"]:checked`);
+                if (selected && selected.value === q.correct) {
+                    correctCount++;
+                }
+            });
+
+            const points = Math.round((correctCount / cData.length) * 50);
+            recordScore(`Chemistry Day ${currentActivityDay}`, points, 50);
+
+            if (typeof confetti === 'function' && points > 0) confetti({ particleCount: 60 });
+        }
+
+        function renderEmojiPuzzles() {
+            const container = document.getElementById('emoji-puzzle-list');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const pList = emojiDaysData[currentActivityDay] || emojiDaysData[1];
+
+            pList.forEach(puzzle => {
+                const div = document.createElement('div');
+                div.className = 'bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2';
+                div.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="text-2xl">${puzzle.emojis}</span>
+                        <span class="text-[10px] font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full">Clue: ${puzzle.clue}</span>
+                    </div>
+                    <input type="text" id="emoji-ans-${puzzle.id}" placeholder="Type decoded phrase..." class="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs uppercase font-semibold text-slate-800 focus:ring-2 focus:ring-purple-500 focus:outline-none">
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function submitEmojiGame() {
+            if (!validateStudentProfile()) return;
+
+            const pList = emojiDaysData[currentActivityDay] || emojiDaysData[1];
+            let correctCount = 0;
+
+            pList.forEach(puzzle => {
+                const inputVal = document.getElementById(`emoji-ans-${puzzle.id}`)?.value.trim().toUpperCase() || '';
+                if (inputVal === puzzle.answer) {
+                    correctCount++;
+                }
+            });
+
+            const pointsEarned = Math.round((correctCount / pList.length) * 50);
+            recordScore(`Emoji-neering Day ${currentActivityDay}`, pointsEarned, 50);
+
+            if (typeof confetti === 'function' && pointsEarned > 0) {
+                confetti({ particleCount: 80, spread: 60, origin: { y: 0.7 } });
+            }
+        }
+
+        function renderLeaderboard() {
+            const tbody = document.getElementById('leaderboard-body');
+            const emptyEl = document.getElementById('leaderboard-empty');
+            if (!tbody) return;
+
+            tbody.innerHTML = '';
+
+            const branchFilter = document.getElementById('leaderboard-branch-filter')?.value || 'ALL';
+            let list = leaderboard;
+
+            if (branchFilter !== 'ALL') {
+                list = list.filter(item => item.branch === branchFilter);
+            }
+
+            if (list.length === 0) {
+                emptyEl?.classList.remove('hidden');
+                return;
+            } else {
+                emptyEl?.classList.add('hidden');
+            }
+
+            list.forEach((student, index) => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-50 transition';
+
+                let rankBadge = `<span class="font-bold text-slate-700">${index + 1}</span>`;
+                if (index === 0) rankBadge = `<span class="w-6 h-6 rounded-full bg-amber-400 text-slate-900 font-bold inline-flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-crown"></i></span>`;
+                else if (index === 1) rankBadge = `<span class="w-6 h-6 rounded-full bg-slate-300 text-slate-800 font-bold inline-flex items-center justify-center text-xs">2</span>`;
+                else if (index === 2) rankBadge = `<span class="w-6 h-6 rounded-full bg-amber-700 text-white font-bold inline-flex items-center justify-center text-xs">3</span>`;
+
+                tr.innerHTML = `
+                    <td class="py-3 px-4">${rankBadge}</td>
+                    <td class="py-3 px-4 font-bold text-slate-900">${student.name}</td>
+                    <td class="py-3 px-4 font-semibold text-slate-600">${student.branch}</td>
+                    <td class="py-3 px-4 text-slate-400 font-mono">${student.usn}</td>
+                    <td class="py-3 px-4 text-center font-bold text-jce-blue">${student.activitiesCount} / 5</td>
+                    <td class="py-3 px-4 text-right font-extrabold text-emerald-600 text-sm">${student.totalScore} pts</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function exportLeaderboardCSV() {
+            if (leaderboard.length === 0) {
+                showNotification('No student leaderboard data available to export.', 'error');
+                return;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8,Rank,Student Name,Department,USN,Activities Completed,Total Score,Last Activity,Time\n";
+            leaderboard.forEach((row, i) => {
+                csvContent += `${i + 1},"${row.name}","${row.branch}","${row.usn}",${row.activitiesCount},${row.totalScore},"${row.lastActivity}","${row.timestamp}"\n`;
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `JCE_Orientation_Leaderboard_2026.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function renderFeedbackSurvey() {
+            const form = document.getElementById('feedback-form');
+            const lockedNotice = document.getElementById('feedback-locked-notice');
+            const container = document.getElementById('feedback-questions-list');
+            if (!container) return;
+
+            if (!adminSettings.feedbackEnabled) {
+                form?.classList.add('hidden');
+                lockedNotice?.classList.remove('hidden');
+                return;
+            } else {
+                form?.classList.remove('hidden');
+                lockedNotice?.classList.add('hidden');
+            }
+
+            container.innerHTML = '';
+
+            feedbackQuestions.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = 'p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-3';
+
+                let inputHtml = '';
+                if (q.type === 'likert') {
+                    inputHtml = `
+                        <div class="grid grid-cols-5 gap-2 text-center text-xs">
+                            ${[1, 2, 3, 4, 5].map(val => `
+                                <label class="p-2 bg-white border border-slate-200 rounded-xl cursor-pointer hover:bg-teal-50 transition flex flex-col items-center gap-1">
+                                    <input type="radio" name="${q.id}" value="${val}" required class="accent-teal-600">
+                                    <span class="font-bold text-slate-800">${val}</span>
+                                    <span class="text-[10px] text-slate-400">${val === 1 ? 'Poor' : val === 5 ? 'Excellent' : ''}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    `;
+                } else if (q.type === 'choice' && q.options) {
+                    inputHtml = `
+                        <div class="space-y-1.5">
+                            ${q.options.map(opt => `
+                                <label class="flex items-center gap-2 p-2 bg-white border border-slate-200 rounded-xl text-xs cursor-pointer hover:bg-teal-50 transition">
+                                    <input type="radio" name="${q.id}" value="${opt}" required class="accent-teal-600">
+                                    <span class="text-slate-700">${opt}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    `;
+                } else {
+                    inputHtml = `
+                        <textarea name="${q.id}" rows="3" required placeholder="Write your detailed reflections here..." class="w-full p-3 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-teal-500 focus:outline-none bg-white"></textarea>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold text-teal-700 bg-teal-100 px-2.5 py-0.5 rounded-full uppercase">${q.dimension}</span>
+                        <span class="text-xs text-slate-400">Question ${idx + 1}</span>
+                    </div>
+                    <p class="font-bold text-slate-900 text-xs sm:text-sm">${q.prompt}</p>
+                    ${inputHtml}
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function submitFeedback(event) {
+            event.preventDefault();
+            if (!validateStudentProfile()) return;
+
+            activeStudent.feedbackSubmitted = true;
+            localStorage.setItem('jce_student_profile', JSON.stringify(activeStudent));
+
+            renderCertificate();
+            showNotification('Thank you! Your feedback has been recorded and your certificate is now unlocked.', 'success');
+            switchTab('certificate');
+
+            if (typeof confetti === 'function') confetti({ particleCount: 100, spread: 70 });
+        }
+
+        function renderCertificate() {
+            const lockedContainer = document.getElementById('certificate-locked-container');
+            const unlockedContainer = document.getElementById('certificate-unlocked-container');
+
+            if (!activeStudent.feedbackSubmitted || !adminSettings.certificateEnabled) {
+                lockedContainer?.classList.remove('hidden');
+                unlockedContainer?.classList.add('hidden');
+                return;
+            }
+
+            lockedContainer?.classList.add('hidden');
+            unlockedContainer?.classList.remove('hidden');
+
+            document.getElementById('cert-student-name').textContent = activeStudent.name || 'Rahul Patil';
+            document.getElementById('cert-student-usn').textContent = activeStudent.usn || '2JI26CS001';
+            document.getElementById('cert-student-branch').textContent = activeStudent.branch || 'Computer Science (CSE)';
+        }
+
+        function renderVideoGallery() {
+            const container = document.getElementById('video-grid-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const recordedSessions = sessions.filter(s => s.videoLink);
+            if (recordedSessions.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 bg-slate-50 rounded-3xl border border-slate-200">
+                        <i class="fa-solid fa-film text-4xl text-slate-300 mb-2"></i>
+                        <p class="text-sm font-bold text-slate-600">No session recordings available yet.</p>
+                        <p class="text-xs text-slate-400">Recordings will be updated by the coordinator after live sessions.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            recordedSessions.forEach(session => {
+                const card = document.createElement('div');
+                card.className = 'bg-slate-50 border border-slate-200 rounded-3xl p-5 shadow-sm space-y-3 flex flex-col justify-between';
+                card.innerHTML = `
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-jce-blue bg-blue-100 px-2.5 py-0.5 rounded-full">Day ${session.dayNum} Recording</span>
+                        <h4 class="font-bold text-slate-900 text-sm line-clamp-2">${session.topic}</h4>
+                        <p class="text-xs text-slate-500">Resource: ${session.speaker}</p>
+                    </div>
+                    <button onclick="openVideoModal('${session.topic.replace(/'/g, "\\'")}', '${session.videoLink}')" class="w-full py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-circle-play"></i> Watch Playback
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function openVideoModal(title, url) {
+            document.getElementById('video-modal-title').textContent = title;
+            const body = document.getElementById('video-modal-body');
+
+            if (url.includes('youtube.com') || url.includes('youtu.be')) {
+                let embedUrl = url;
+                if (url.includes('watch?v=')) {
+                    embedUrl = url.replace('watch?v=', 'embed/');
+                }
+                body.innerHTML = `<iframe class="w-full h-full" src="${embedUrl}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            } else {
+                body.innerHTML = `<video class="w-full h-full" controls autoplay><source src="${url}" type="video/mp4">Your browser does not support HTML5 video.</video>`;
+            }
+
+            document.getElementById('video-modal').classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            document.getElementById('video-modal').classList.add('hidden');
+            document.getElementById('video-modal-body').innerHTML = '';
+        }
+
+        function openAdminModal() {
+            document.getElementById('admin-modal').classList.remove('hidden');
+            document.getElementById('admin-auth-screen').classList.remove('hidden');
+            document.getElementById('admin-panel-content').classList.add('hidden');
+            document.getElementById('admin-password-input').value = '';
+            document.getElementById('admin-auth-error').classList.add('hidden');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('admin-modal').classList.add('hidden');
+        }
+
+        function authenticateAdmin() {
+            const inputPass = document.getElementById('admin-password-input').value;
+            if (inputPass === 'shiva2026') {
+                isAdminAuthorized = true;
+                
+                revealAuthorizedTabs();
+
+                document.getElementById('admin-auth-screen').classList.add('hidden');
+                document.getElementById('admin-panel-content').classList.remove('hidden');
+                
+                if (document.getElementById('toggle-admin-feedback')) {
+                    document.getElementById('toggle-admin-feedback').checked = adminSettings.feedbackEnabled;
+                }
+                if (document.getElementById('toggle-admin-certificate')) {
+                    document.getElementById('toggle-admin-certificate').checked = adminSettings.certificateEnabled;
+                }
+
+                renderAdminQuestionsEditor();
+                renderAdminSessionsEditor();
+                showNotification('🔑 Administrator authorized! Feedback and Certificate tabs unlocked on Web Hub.', 'success');
+            } else {
+                document.getElementById('admin-auth-error').classList.remove('hidden');
+            }
+        }
+
+        function revealAuthorizedTabs() {
+            const feedbackTab = document.getElementById('tab-feedback');
+            const certTab = document.getElementById('tab-certificate');
+            if (feedbackTab) feedbackTab.classList.remove('hidden');
+            if (certTab) certTab.classList.remove('hidden');
+        }
+
+        function toggleFeedbackGateway(enabled) {
+            adminSettings.feedbackEnabled = enabled;
+            localStorage.setItem('jce_admin_settings', JSON.stringify(adminSettings));
+            renderFeedbackSurvey();
+            showNotification(`Feedback Gateway ${enabled ? 'ENABLED' : 'DISABLED'}.`, 'info');
+        }
+
+        function toggleCertificateGateway(enabled) {
+            adminSettings.certificateEnabled = enabled;
+            localStorage.setItem('jce_admin_settings', JSON.stringify(adminSettings));
+            renderCertificate();
+            showNotification(`Certificate Gateway ${enabled ? 'ENABLED' : 'DISABLED'}.`, 'info');
+        }
+
+        function renderAdminQuestionsEditor() {
+            const container = document.getElementById('admin-feedback-questions-list');
+            if (!container) return;
+            container.innerHTML = '';
+
+            feedbackQuestions.forEach((q, idx) => {
+                const item = document.createElement('div');
+                item.className = 'p-3 bg-white border border-slate-200 rounded-xl space-y-2 text-xs';
+                item.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <input type="text" value="${q.dimension}" onchange="updateQuestionField(${idx}, 'dimension', this.value)" class="px-2 py-1 bg-slate-100 rounded text-[10px] font-bold uppercase text-teal-800">
+                        <button onclick="deleteAdminQuestion(${idx})" class="text-red-500 hover:text-red-700 font-bold"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    <input type="text" value="${q.prompt}" onchange="updateQuestionField(${idx}, 'prompt', this.value)" class="w-full px-2 py-1 border rounded text-xs font-semibold">
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function updateQuestionField(idx, field, val) {
+            if (feedbackQuestions[idx]) feedbackQuestions[idx][field] = val;
+        }
+
+        function addAdminQuestion() {
+            feedbackQuestions.push({
+                id: `q_${Date.now()}`,
+                dimension: "New Dimension",
+                prompt: "Enter custom question text here...",
+                type: "likert"
+            });
+            renderAdminQuestionsEditor();
+        }
+
+        function deleteAdminQuestion(idx) {
+            feedbackQuestions.splice(idx, 1);
+            renderAdminQuestionsEditor();
+        }
+
+        function renderAdminSessionsEditor() {
+            const container = document.getElementById('admin-sessions-editor-list');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+            sessions.forEach((s, idx) => {
+                const isGlowing = s.isGlowActive === true || (manualGlowIndex === idx);
+
+                const item = document.createElement('div');
+                item.className = isGlowing 
+                    ? 'p-4 bg-amber-50 border-2 border-amber-400 rounded-2xl space-y-3 shadow-md'
+                    : 'p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3';
+
+                item.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-between font-bold text-xs text-jce-navy border-b border-slate-200 pb-2 gap-2">
+                        <div class="flex items-center gap-2">
+                            <span>Day ${s.dayNum} Session Card</span>
+                            ${isGlowing ? '<span class="text-[10px] bg-amber-500 text-slate-900 px-2 py-0.5 rounded-full font-extrabold"><i class="fa-solid fa-sun"></i> ACTIVE GLOW</span>' : ''}
+                        </div>
+                        
+                        <div class="flex items-center gap-3">
+                            <label class="inline-flex items-center cursor-pointer gap-2 bg-white px-3 py-1 rounded-xl border border-slate-200 shadow-sm">
+                                <span class="text-[11px] font-bold text-slate-700">Glowing State:</span>
+                                <div class="relative">
+                                    <input type="checkbox" ${isGlowing ? 'checked' : ''} onchange="toggleSessionGlow(${idx}, this.checked)" class="sr-only peer">
+                                    <div class="w-9 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-amber-500"></div>
+                                </div>
+                                <span class="text-[11px] font-extrabold ${isGlowing ? 'text-amber-600' : 'text-slate-400'}">${isGlowing ? 'ON' : 'OFF'}</span>
+                            </label>
+
+                            <button onclick="splitSession(${idx})" class="px-2.5 py-1 bg-amber-500 hover:bg-amber-600 text-slate-900 rounded-lg text-[11px] font-bold transition flex items-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-scissors"></i> Split
+                            </button>
+                            <button onclick="deleteSession(${idx})" class="px-2.5 py-1 bg-red-600 hover:bg-red-700 text-white rounded-lg text-[11px] font-bold transition flex items-center gap-1 shadow-sm">
+                                <i class="fa-solid fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs">
+                        <div>
+                            <label class="block font-semibold text-slate-600 mb-1">Day #</label>
+                            <input type="number" min="1" max="30" value="${s.dayNum}" onchange="updateSessionField(${idx}, 'dayNum', parseInt(this.value) || 1)" class="w-full px-3 py-1.5 border border-slate-300 rounded-xl bg-white font-bold text-center">
+                        </div>
+
+                        <div>
+                            <label class="block font-semibold text-slate-600 mb-1">Day of Week</label>
+                            <select onchange="updateSessionField(${idx}, 'dayOfWeek', this.value)" class="w-full px-3 py-1.5 border border-slate-300 rounded-xl bg-white font-semibold">
+                                ${daysOfWeek.map(day => `<option value="${day}" ${s.dayOfWeek === day ? 'selected' : ''}>${day}</option>`).join('')}
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block font-semibold text-slate-600 mb-1">Date Option</label>
+                            <input type="text" value="${s.dateStr}" onchange="updateSessionField(${idx}, 'dateStr', this.value)" class="w-full px-3 py-1.5 border border-slate-300 rounded-xl bg-white font-medium" placeholder="e.g. Aug 3, 2026">
+                        </div>
+
+                        <div>
+                            <label class="block font-semibold text-slate-600 mb-1">Time Slot</label>
+                            <input type="text" value="${s.timeSlot}" onchange="updateSessionField(${idx}, 'timeSlot', this.value)" class="w-full px-3 py-1.5 border rounded-xl bg-white">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block font-semibold text-slate-600 mb-1">Topic Title</label>
+                            <input type="text" value="${s.topic}" onchange="updateSessionField(${idx}, 'topic', this.value)" class="w-full px-3 py-1.5 border rounded-xl bg-white font-semibold">
+                        </div>
+                        <div class="sm:col-span-2 lg:col-span-3">
+                            <label class="block font-semibold text-slate-600 mb-1">Speaker / Facilitator</label>
+                            <input type="text" value="${s.speaker}" onchange="updateSessionField(${idx}, 'speaker', this.value)" class="w-full px-3 py-1.5 border rounded-xl bg-white">
+                        </div>
+
+                        <div class="sm:col-span-2 lg:col-span-3 space-y-1">
+                            <label class="block font-semibold text-slate-600 mb-1 flex items-center justify-between">
+                                <span><i class="fa-solid fa-image-portrait text-jce-blue mr-1"></i> Passport Photo</span>
+                                <span class="text-[10px] text-teal-600 font-bold">Auto Base64</span>
+                            </label>
+                            <div class="flex items-center gap-2">
+                                <input type="text" value="${s.photoUrl || ''}" onchange="updateSessionField(${idx}, 'photoUrl', this.value)" class="w-full px-3 py-1.5 border rounded-xl bg-white text-[11px] truncate" placeholder="Select file ->">
+                                <label class="px-3.5 py-1.5 bg-jce-blue text-white font-bold rounded-xl text-xs cursor-pointer hover:bg-blue-800 transition flex items-center gap-1.5 flex-shrink-0 shadow-sm">
+                                    <i class="fa-solid fa-file-arrow-up"></i> Upload
+                                    <input type="file" accept="image/*" class="hidden" onchange="handleAdminPhotoUpload(event, ${idx})">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-2 lg:col-span-3 space-y-1">
+                            <label class="block font-semibold text-slate-600 mb-1 flex items-center justify-between">
+                                <span><i class="fa-solid fa-graduation-cap text-teal-600 mr-1"></i> Online Course URL</span>
+                                <span class="text-[10px] text-teal-700 font-bold">Student Link</span>
+                            </label>
+                            <input type="text" value="${s.courseUrl || ''}" onchange="updateSessionField(${idx}, 'courseUrl', this.value)" class="w-full px-3 py-1.5 border rounded-xl bg-white text-xs" placeholder="https://vlab.amrita.edu/">
+                        </div>
+
+                        <div class="sm:col-span-2 lg:col-span-3">
+                            <label class="block font-semibold text-slate-600 mb-1">Primary Google Meet Link</label>
+                            <input type="text" value="${s.meetLink}" onchange="updateSessionField(${idx}, 'meetLink', this.value)" class="w-full px-3 py-1.5 border rounded-xl bg-white">
+                        </div>
+                        <div class="sm:col-span-2 lg:col-span-3">
+                            <label class="block font-semibold text-slate-600 mb-1">Secondary Meet Link (Backup)</label>
+                            <input type="text" value="${s.secondMeetLink || ''}" onchange="updateSessionField(${idx}, 'secondMeetLink', this.value)" class="w-full px-3 py-1.5 border rounded-xl bg-white" placeholder="https://meet.google.com/...">
+                        </div>
+                        <div class="sm:col-span-2 lg:col-span-3">
+                            <label class="block font-semibold text-slate-600 mb-1">Recording URL</label>
+                            <input type="text" value="${s.videoLink || ''}" onchange="updateSessionField(${idx}, 'videoLink', this.value)" class="w-full px-3 py-1.5 border rounded-xl bg-white" placeholder="https://...">
+                        </div>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function toggleSessionGlow(index, isChecked) {
+            if (!sessions[index]) return;
+
+            sessions.forEach((s, i) => {
+                if (i !== index) s.isGlowActive = false;
+            });
+
+            sessions[index].isGlowActive = isChecked;
+            manualGlowIndex = isChecked ? index : null;
+
+            sessionsRef.set(sessions)
+                .then(() => {
+                    renderSchedule();
+                    renderAdminSessionsEditor();
+                    showNotification(
+                        isChecked 
+                            ? `Day ${sessions[index].dayNum} "Glowing Active" turned ON and synced live!` 
+                            : `Day ${sessions[index].dayNum} "Glowing Active" turned OFF!`,
+                        isChecked ? 'success' : 'info'
+                    );
+                })
+                .catch((err) => {
+                    console.error("Firebase sync error:", err);
+                });
+        }
+
+        function handleAdminPhotoUpload(event, index) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const base64Photo = e.target.result;
+                updateSessionField(index, 'photoUrl', base64Photo);
+                renderAdminSessionsEditor();
+                renderSchedule();
+                showNotification(`Passport photo uploaded for Day ${sessions[index].dayNum}!`, 'success');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function updateSessionField(index, field, value) {
+            if (sessions[index]) {
+                sessions[index][field] = value;
+            }
+        }
+
+        function splitSession(index) {
+            const orig = sessions[index];
+            if (!orig) return;
+
+            const part1 = {
+                ...orig,
+                dayNum: orig.dayNum,
+                timeSlot: '10:00 AM - 10:45 AM (Part 1)',
+                topic: `${orig.topic} — Part I`,
+                description: `${orig.description} (First 45-min segment)`,
+                isGlowActive: orig.isGlowActive || false
+            };
+
+            const part2 = {
+                ...orig,
+                dayNum: orig.dayNum,
+                timeSlot: '10:45 AM - 11:30 AM (Part 2)',
+                topic: `${orig.topic} — Part II`,
+                description: `${orig.description} (Second 45-min segment)`,
+                isGlowActive: false
+            };
+
+            sessions.splice(index, 1, part1, part2);
+            renderAdminSessionsEditor();
+            renderSchedule();
+            showNotification(`Session on Day ${orig.dayNum} split into two parts.`, 'info');
+        }
+
+        function deleteSession(index) {
+            const target = sessions[index];
+            if (!target) return;
+            sessions.splice(index, 1);
+            renderAdminSessionsEditor();
+            renderSchedule();
+            showNotification(`Session "${target.topic}" deleted.`, 'info');
+        }
+
+        function addNewSession() {
+            const newDayNum = sessions.length + 1;
+            sessions.push({
+                dayNum: newDayNum,
+                dayOfWeek: 'Monday',
+                dateStr: 'Aug 17, 2026',
+                week: 'week2',
+                timeSlot: '10:00 AM - 11:30 AM',
+                topic: 'New Special Workshop',
+                speaker: 'Guest Resource Person',
+                photoUrl: '',
+                courseUrl: '',
+                description: 'Additional interactive session added by coordinator.',
+                meetLink: 'https://meet.google.com/abc-defg-hij',
+                videoLink: '',
+                isGlowActive: false
+            });
+            renderAdminSessionsEditor();
+            renderSchedule();
+        }
+
+        function resetScheduleToDefault() {
+            sessions = [...defaultSchedule];
+            manualGlowIndex = null;
+            feedbackQuestions = [...defaultFeedbackQuestions];
+            sessionsRef.set(defaultSchedule);
+            localStorage.setItem('jce_feedback_questions', JSON.stringify(feedbackQuestions));
+            renderAdminSessionsEditor();
+            renderAdminQuestionsEditor();
+            renderSchedule();
+            renderFeedbackSurvey();
+            showNotification('Schedule and questions reset to original defaults.', 'info');
+        }
+
+        function clearAllLeaderboardData() {
+            leaderboardRef.remove()
+                .then(() => {
+                    leaderboard = [];
+                    renderLeaderboard();
+                    showNotification('Leaderboard data cleared successfully from cloud database.', 'info');
+                });
+        }
+
+        function saveAdminSessions() {
+            sessionsRef.set(sessions)
+                .then(() => {
+                    localStorage.setItem('jce_feedback_questions', JSON.stringify(feedbackQuestions));
+                    closeAdminModal();
+                    renderSchedule();
+                    renderFeedbackSurvey();
+                    showNotification('All admin changes saved live to new database!', 'success');
+                })
+                .catch((err) => {
+                    console.error("Firebase session sync error:", err);
+                });
+        }
+
+        function exportUpdatedHTML() {
+            let fullHTML = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+
+            const updatedScheduleJSON = JSON.stringify(sessions, null, 12);
+            const regex = /const defaultSchedule = \[\s*[\s\S]*?\n\s*\];/;
+
+            fullHTML = fullHTML.replace(regex, `const defaultSchedule = ${updatedScheduleJSON};`);
+
+            const blob = new Blob([fullHTML], { type: 'text/html' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'jce_freshmen_orientation_hub_2026.html';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            showNotification('Updated HTML downloaded!', 'success');
+        }
+    </script>
+</body>
+</html>
