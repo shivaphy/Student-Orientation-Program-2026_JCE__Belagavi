@@ -497,7 +497,7 @@
                         </select>
 
                         <button onclick="exportLeaderboardCSV()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs transition flex items-center gap-2 shadow-sm">
-                            <i class="fa-solid fa-file-excel"></i> Export CSV
+                            <i class="fa-solid fa-file-excel"></i> Export Leaderboard CSV
                         </button>
                     </div>
                 </div>
@@ -787,12 +787,15 @@
                     </div>
                 </div>
 
-                <!-- Schedule Management Section -->
+                <!-- Management Actions & CSV Exports -->
                 <div class="flex flex-wrap gap-3 justify-between items-center bg-slate-50 p-4 rounded-2xl border border-slate-200">
                     <button onclick="addNewSession()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs transition flex items-center gap-2">
                         <i class="fa-solid fa-plus"></i> Add New Session
                     </button>
                     <div class="flex flex-wrap gap-2">
+                        <button onclick="exportFeedbackCSV()" class="px-3.5 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl text-xs transition flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-file-csv"></i> Export Feedback CSV
+                        </button>
                         <button onclick="exportUpdatedHTML()" class="px-3.5 py-2 bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold rounded-xl text-xs transition flex items-center gap-2 shadow-sm">
                             <i class="fa-solid fa-file-code"></i> Export Updated HTML
                         </button>
@@ -846,7 +849,7 @@
     <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
 
     <script>
-        // Target Credentials for Production Cutover (REPLACE WITH YOUR NEW FIREBASE PROJECT KEYS)
+        // Target Credentials for Production Cutover
         const firebaseConfig = {
             apiKey: "AIzaSyByiGBXzQoRZWqvhCjraqCv7KZjm7QhDw8",
             authDomain: "jce-orientation-webhub-2026.firebaseapp.com",
@@ -863,6 +866,7 @@
         const db = firebase.database();
         const leaderboardRef = db.ref('leaderboard');
         const sessionsRef = db.ref('sessions');
+        const feedbackRef = db.ref('feedback');
 
         // Default orientation session schedule
         const defaultSchedule = [
@@ -1110,7 +1114,7 @@
             }
         ];
 
-        // Default feedback questionnaire targeting key dimensions
+        // Comprehensive 12-question feedback questionnaire
         const defaultFeedbackQuestions = [
             // Area 1: Web Hub Page Design & Usability
             {
@@ -1868,7 +1872,7 @@
             // Save live score to Firebase Realtime Database
             db.ref('leaderboard/' + studentKey).set(entry)
                 .then(() => {
-                    showNotification(`Score synced to new cloud database! (+${score} pts)`, 'success');
+                    showNotification(`Score synced to cloud database! (+${score} pts)`, 'success');
                 })
                 .catch((err) => {
                     console.error("Firebase sync error:", err);
@@ -2425,14 +2429,93 @@
             event.preventDefault();
             if (!validateStudentProfile()) return;
 
-            activeStudent.feedbackSubmitted = true;
-            localStorage.setItem('jce_student_profile', JSON.stringify(activeStudent));
+            const formElem = event.target;
+            const formData = new FormData(formElem);
+            const feedbackAnswers = {};
 
-            renderCertificate();
-            showNotification('Thank you! Your feedback has been recorded and your certificate is now unlocked.', 'success');
-            switchTab('certificate');
+            feedbackQuestions.forEach(q => {
+                feedbackAnswers[q.id] = formData.get(q.id) || '';
+            });
 
-            if (typeof confetti === 'function') confetti({ particleCount: 100, spread: 70 });
+            const studentKey = (activeStudent.name + '_' + activeStudent.branch)
+                .replace(/[^a-zA-Z0-9]/g, '_')
+                .toLowerCase();
+
+            const record = {
+                name: activeStudent.name,
+                branch: activeStudent.branch,
+                usn: activeStudent.usn || 'N/A',
+                submittedAt: new Date().toLocaleString(),
+                timestamp: Date.now(),
+                answers: feedbackAnswers
+            };
+
+            // Save feedback live to Firebase Realtime Database
+            feedbackRef.child(studentKey).set(record)
+                .then(() => {
+                    activeStudent.feedbackSubmitted = true;
+                    localStorage.setItem('jce_student_profile', JSON.stringify(activeStudent));
+                    renderCertificate();
+                    showNotification('Thank you! Your feedback has been recorded and your certificate is now unlocked.', 'success');
+                    switchTab('certificate');
+                    if (typeof confetti === 'function') confetti({ particleCount: 100, spread: 70 });
+                })
+                .catch(err => {
+                    console.error("Error saving feedback to cloud:", err);
+                    activeStudent.feedbackSubmitted = true;
+                    localStorage.setItem('jce_student_profile', JSON.stringify(activeStudent));
+                    renderCertificate();
+                    switchTab('certificate');
+                });
+        }
+
+        function exportFeedbackCSV() {
+            feedbackRef.once('value', (snapshot) => {
+                const data = snapshot.val();
+                if (!data) {
+                    showNotification('No student feedback responses recorded in the database yet.', 'error');
+                    return;
+                }
+
+                const list = Object.values(data);
+                if (list.length === 0) {
+                    showNotification('No student feedback responses recorded yet.', 'error');
+                    return;
+                }
+
+                let headers = ["Student Name", "Department", "USN", "Submitted At"];
+                feedbackQuestions.forEach(q => {
+                    headers.push(`"${q.dimension}: ${q.prompt.replace(/"/g, '""')}"`);
+                });
+
+                let csvContent = "data:text/csv;charset=utf-8," + headers.join(",") + "\n";
+
+                list.forEach(item => {
+                    let row = [
+                        `"${item.name || ''}"`,
+                        `"${item.branch || ''}"`,
+                        `"${item.usn || ''}"`,
+                        `"${item.submittedAt || ''}"`
+                    ];
+
+                    feedbackQuestions.forEach(q => {
+                        const ans = (item.answers && item.answers[q.id]) ? item.answers[q.id] : '';
+                        row.push(`"${String(ans).replace(/"/g, '""')}"`);
+                    });
+
+                    csvContent += row.join(",") + "\n";
+                });
+
+                const encodedUri = encodeURI(csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", `JCE_Orientation_Feedback_Responses_2026.csv`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                showNotification('Feedback responses exported to CSV!', 'success');
+            });
         }
 
         function renderCertificate() {
@@ -2851,7 +2934,7 @@
                     closeAdminModal();
                     renderSchedule();
                     renderFeedbackSurvey();
-                    showNotification('All admin changes saved live to new database!', 'success');
+                    showNotification('All admin changes saved live to database!', 'success');
                 })
                 .catch((err) => {
                     console.error("Firebase session sync error:", err);
