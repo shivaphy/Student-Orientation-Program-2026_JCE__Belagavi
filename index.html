@@ -867,6 +867,7 @@
         const leaderboardRef = db.ref('leaderboard');
         const sessionsRef = db.ref('sessions');
         const feedbackRef = db.ref('feedback');
+        const settingsRef = db.ref('settings');
 
         // Default orientation session schedule
         const defaultSchedule = [
@@ -1574,7 +1575,54 @@
             }, 4000);
         }
 
+        function updateGatewayTabsVisibility() {
+            const feedbackTab = document.getElementById('tab-feedback');
+            const certTab = document.getElementById('tab-certificate');
+
+            if (feedbackTab) {
+                if (adminSettings.feedbackEnabled) {
+                    feedbackTab.classList.remove('hidden');
+                } else {
+                    feedbackTab.classList.add('hidden');
+                }
+            }
+
+            if (certTab) {
+                if (adminSettings.certificateEnabled) {
+                    certTab.classList.remove('hidden');
+                } else {
+                    certTab.classList.add('hidden');
+                }
+            }
+        }
+
         function initApp() {
+            // Realtime Sync from Firebase Database for Global Settings
+            settingsRef.on('value', (snapshot) => {
+                const data = snapshot.val();
+                if (data) {
+                    adminSettings = {
+                        feedbackEnabled: data.feedbackEnabled ?? true,
+                        certificateEnabled: data.certificateEnabled ?? true
+                    };
+                } else {
+                    adminSettings = { feedbackEnabled: true, certificateEnabled: true };
+                    settingsRef.set(adminSettings);
+                }
+                
+                // Update Gateway tab visibility globally for all users
+                updateGatewayTabsVisibility();
+                
+                // Update Admin Panel toggles if active
+                const fbToggle = document.getElementById('toggle-admin-feedback');
+                const certToggle = document.getElementById('toggle-admin-certificate');
+                if (fbToggle) fbToggle.checked = adminSettings.feedbackEnabled;
+                if (certToggle) certToggle.checked = adminSettings.certificateEnabled;
+
+                renderFeedbackSurvey();
+                renderCertificate();
+            });
+
             // Realtime Sync from Firebase Database for Sessions
             sessionsRef.on('value', (snapshot) => {
                 const data = snapshot.val();
@@ -1601,12 +1649,6 @@
                 renderLeaderboard();
             });
 
-            // Load settings & questions from LocalStorage
-            const savedSettings = localStorage.getItem('jce_admin_settings');
-            if (savedSettings) {
-                try { adminSettings = JSON.parse(savedSettings); } catch(e) {}
-            }
-
             const savedQuestions = localStorage.getItem('jce_feedback_questions');
             if (savedQuestions) {
                 try { feedbackQuestions = JSON.parse(savedQuestions); } catch(e) { feedbackQuestions = [...defaultFeedbackQuestions]; }
@@ -1625,8 +1667,6 @@
 
             renderDaySelectorButtons();
             selectActivityDay(1);
-            renderFeedbackSurvey();
-            renderCertificate();
         }
 
         function switchTab(tabId) {
@@ -2608,8 +2648,6 @@
             const inputPass = document.getElementById('admin-password-input').value;
             if (inputPass === 'shiva2026') {
                 isAdminAuthorized = true;
-                
-                revealAuthorizedTabs();
 
                 document.getElementById('admin-auth-screen').classList.add('hidden');
                 document.getElementById('admin-panel-content').classList.remove('hidden');
@@ -2623,31 +2661,34 @@
 
                 renderAdminQuestionsEditor();
                 renderAdminSessionsEditor();
-                showNotification('🔑 Administrator authorized! Feedback and Certificate tabs unlocked on Web Hub.', 'success');
+                showNotification('🔑 Administrator authorized! Access granted to Coordinator Panel.', 'success');
             } else {
                 document.getElementById('admin-auth-error').classList.remove('hidden');
             }
         }
 
-        function revealAuthorizedTabs() {
-            const feedbackTab = document.getElementById('tab-feedback');
-            const certTab = document.getElementById('tab-certificate');
-            if (feedbackTab) feedbackTab.classList.remove('hidden');
-            if (certTab) certTab.classList.remove('hidden');
-        }
-
         function toggleFeedbackGateway(enabled) {
             adminSettings.feedbackEnabled = enabled;
-            localStorage.setItem('jce_admin_settings', JSON.stringify(adminSettings));
-            renderFeedbackSurvey();
-            showNotification(`Feedback Gateway ${enabled ? 'ENABLED' : 'DISABLED'}.`, 'info');
+            settingsRef.child('feedbackEnabled').set(enabled)
+                .then(() => {
+                    showNotification(`Feedback Gateway ${enabled ? 'ENABLED' : 'DISABLED'} globally across all devices!`, 'info');
+                })
+                .catch((err) => {
+                    console.error("Error updating settings in Firebase:", err);
+                    showNotification('Failed to update Gateway setting in cloud.', 'error');
+                });
         }
 
         function toggleCertificateGateway(enabled) {
             adminSettings.certificateEnabled = enabled;
-            localStorage.setItem('jce_admin_settings', JSON.stringify(adminSettings));
-            renderCertificate();
-            showNotification(`Certificate Gateway ${enabled ? 'ENABLED' : 'DISABLED'}.`, 'info');
+            settingsRef.child('certificateEnabled').set(enabled)
+                .then(() => {
+                    showNotification(`Certificate Gateway ${enabled ? 'ENABLED' : 'DISABLED'} globally across all devices!`, 'info');
+                })
+                .catch((err) => {
+                    console.error("Error updating settings in Firebase:", err);
+                    showNotification('Failed to update Gateway setting in cloud.', 'error');
+                });
         }
 
         function renderAdminQuestionsEditor() {
